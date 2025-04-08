@@ -1,0 +1,6 @@
+a=eval(input())
+b=max(a)
+c=min(a)
+a.clear(b)
+a.clear(c)
+print(a)

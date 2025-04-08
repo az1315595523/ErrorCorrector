@@ -1,0 +1,15 @@
+1.grammar error 
+---bracket_mismatched_error
+---colon_error
+---indent_error
+---quote_mismatched_error
+---module_error
+2.logical error
+---condition_judge_error
+---loop_judge_error
+---variable_substitute
+---operator_substitue
+3.runtime error
+---divide_by_0
+---out_of_range
+4.edge condition error

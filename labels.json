@@ -1,0 +1,10 @@
+[
+  {
+    "error_type": "operator",
+    "severity": "medium"
+  },
+  {
+    "error_type": "loop_boundary",
+    "severity": "high"
+  }
+]
