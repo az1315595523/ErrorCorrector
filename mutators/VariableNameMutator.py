@@ -54,14 +54,19 @@ def get_weighted_random_variable(old_var, candidates):
         difflib.SequenceMatcher(None, old_var, var).ratio()
         for var in candidates
     ]
-    print(similarity_scores)
+    total = sum(similarity_scores)
+    if total == 0:
+        similarity_scores = [1 / len(candidates)] * len(candidates)
+    else:
+        similarity_scores = [score / total for score in similarity_scores]
+
     new_var = random.choices(candidates, weights=similarity_scores, k=1)[0]
     return new_var
 
 
 class VariableNameMutator(BaseMutator):
-    def __init__(self, mutate_rate=0.3):
-        super().__init__(mutate_rate)
+    def __init__(self):
+        super().__init__()
 
     def get_mutate_types(self):
         return ['VRenew', 'VReplace']

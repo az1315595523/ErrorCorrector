@@ -1,0 +1,13 @@
+{
+  "times": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QSingle_to_double\nLine: 8\nOriginal Code:     str('%.2f' % d)\nMutated Code:     str(\"%.2f\" % d)\nDescription: Changed single to double quotes at line 8\n",
+      "mutator_type": "QuoteMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(-1, b)\n\nDescription: RangeStartDec 2\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

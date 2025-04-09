@@ -1,0 +1,9 @@
+{
+  "times": 1,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QUnterminated\nLine: 8\nOriginal Code:     print(\"%.2f\"%d)\nMutated Code:     print(%.2f\"%d)\nDescription: Removed opening quote at line 8\n",
+      "mutator_type": "QuoteMutator"
+    }
+  ]
+}

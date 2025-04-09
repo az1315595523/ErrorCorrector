@@ -13,10 +13,19 @@ class MutationRecord:
     mutated_code: str
     description: str
 
+    def __str__(self):
+        return (
+            f"Mutator: {self.mutator_type}\n"
+            f"Mutation Type: {self.mutate_type}\n"
+            f"Line: {self.line_num}\n"
+            f"Original Code: {self.original_code}\n"
+            f"Mutated Code: {self.mutated_code}\n"
+            f"Description: {self.description}\n"
+        )
+
 
 class BaseMutator(ABC):
-    def __init__(self, mutate_rate=0.3):
-        self.mutate_rate = mutate_rate
+    def __init__(self):
         self.mutation_record = None
         self.successful = False
 
@@ -43,8 +52,7 @@ class BaseMutator(ABC):
         mutated_code: str,
         description: str = ""
     ):
-        """记录变异信息"""
-        record = MutationRecord(
+        self.mutation_record = MutationRecord(
             mutator_type=mutator_type,
             mutate_type=mutate_type,
             line_num=line_num,
@@ -52,4 +60,3 @@ class BaseMutator(ABC):
             mutated_code=mutated_code,
             description=description
         )
-        self.mutation_record = record

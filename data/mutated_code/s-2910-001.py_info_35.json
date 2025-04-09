@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: x\nMutated Code: a\nDescription: Renamed 'x' to 'a'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 6\nOriginal Code: a\nMutated Code: b\nDescription: Renamed 'a' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % d)\n\nMutated Code: ('%.2f' * d)\n\nDescription: Replaced Mod with Mult in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

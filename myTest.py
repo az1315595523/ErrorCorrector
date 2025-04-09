@@ -1,6 +1,6 @@
 import os
 
-from config import Config
+from config import CONFIG
 from dataPipeline import DataPipeline
 from mutators.BracketMutator import BracketMutator
 from mutators.ColonMutator import ColonMutator
@@ -10,16 +10,12 @@ from mutators.ModuleMutator import ModuleMutator
 from mutators.QuoteMutator import QuoteMutator
 from mutators.VariableNameMutator import VariableNameMutator
 from mutators.OperatorMutator import OperatorMutator
-
-if __name__ == "__main__":
-    # pipeline = DataPipeline()
-    # pipeline.generate_dataset(
-    #     input_dir=Config.INPUT_DIR,
-    #     output_dir=Config.OUTPUT_DIR
-    # )
-    M = FunctionMutator()
-
-    with open('TestPython.py', 'r') as f:
+from mutators.ConditionMutator import ConditionMutator
+from mutators.BoundaryMutator import BoundaryMutator
+from mutators.ArrayMutator import ArrayMutator
+def test():
+    M = BoundaryMutator()
+    with open('s-2910-001.py', 'r') as f:
         correct_code = f.read()
 
     muCode = M.mutate(correct_code)
@@ -28,3 +24,12 @@ if __name__ == "__main__":
     print(muCode)
 
     print("mutateInfo:", M.mutation_record)
+
+
+# test()
+
+pipeline = DataPipeline()
+pipeline.generate_dataset(
+    input_dir=CONFIG.INPUT_DIR,
+    output_dir=CONFIG.OUTPUT_DIR
+)

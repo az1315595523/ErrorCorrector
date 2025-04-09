@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % d)\n\nMutated Code: ('%.2f' - d)\n\nDescription: Replaced Mod with Sub in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStopInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(1, b + 2)\n\nDescription: RangeStopInc 2\n",
+      "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QSingle_to_double\nLine: 5\nOriginal Code:     print('%.2f' * d)\nMutated Code:     print(\"%.2f\" * d)\nDescription: Changed single to double quotes at line 5\n",
+      "mutator_type": "QuoteMutator"
+    }
+  ]
+}

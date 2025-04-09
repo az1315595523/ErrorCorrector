@@ -4,8 +4,8 @@ import random
 
 
 class IndentMutator(BaseMutator):
-    def __init__(self, mutate_rate=0.3):
-        super().__init__(mutate_rate)
+    def __init__(self):
+        super().__init__()
 
     def get_mutate_types(self):
         return ['IAdd_space', 'IRemove_space', 'IMix_tabs']
@@ -17,7 +17,8 @@ class IndentMutator(BaseMutator):
                 mutation_type = self.select_mutation_type()
                 original_line = line
                 indent = len(line) - len(line.lstrip())
-
+                mutated_line = original_line
+                desc = ""
                 if mutation_type == 'IAdd_space':
                     mutated_line = ' ' * (indent + 4) + line.lstrip()
                     desc = f"Added 4 spaces at line {i + 1}"

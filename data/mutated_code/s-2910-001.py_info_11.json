@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QSingle_to_double\nLine: 8\nOriginal Code:     print(\"%.2f\"%d)\nMutated Code:     print(\"%.2f\"%d)\nDescription: Changed single to double quotes at line 8\n",
+      "mutator_type": "QuoteMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: a\nMutated Code: c\nDescription: Renamed 'a' to 'c'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: Replaced Gt with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

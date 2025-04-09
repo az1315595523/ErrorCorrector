@@ -1,0 +1,13 @@
+{
+  "times": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: BoundaryAdjust: (b > 1)\n → (b >= 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStopDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(1, b - 1)\n\nDescription: RangeStopDec 1\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

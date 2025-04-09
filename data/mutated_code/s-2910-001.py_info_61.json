@@ -1,0 +1,13 @@
+{
+  "times": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % d)\n\nMutated Code: ('%.2f' ** d)\n\nDescription: Replaced Mod with Pow in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 7\nOriginal Code: c\nMutated Code: x\nDescription: Renamed 'c' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

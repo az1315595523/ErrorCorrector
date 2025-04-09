@@ -1,0 +1,13 @@
+{
+  "times": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: x\nMutated Code: d\nDescription: Renamed 'x' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(4, b)\n\nDescription: RangeStartInc 3\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

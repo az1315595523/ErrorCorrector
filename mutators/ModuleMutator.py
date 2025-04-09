@@ -39,8 +39,8 @@ class ModuleCollector(ast.NodeVisitor):
 
 
 class ModuleMutator(BaseMutator):
-    def __init__(self, error_rate: float = 0.3):
-        super().__init__(error_rate)
+    def __init__(self):
+        super().__init__()
 
         self.MODULE_REPLACEMENTS: Dict[str, List[str]] = {
             'os': ['sys', 'pathlib', 'shutil'],

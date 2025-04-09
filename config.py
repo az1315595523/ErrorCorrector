@@ -1,18 +1,32 @@
-class Config:
-    MUTATORS = [
-        'colon_mutator.ColonMutator',
-        'bracket_mutator.BracketMutator',
-        'indent_mutator.IndentMutator',
-        'quote_mutator.QuoteMutator',
-        'comparison_mutator.ComparisonMutator',
-        'decorator_mutator.DecoratorMutator',
-        # 添加其他变异器...
+class CONFIG:
+    INPUT_DIR = 'data/ori_code'
+    OUTPUT_DIR = 'data/mutated_code'
+
+    MUTATION_RATE = [
+        0.01,   # bracket
+        0.02,   # colon
+        0.08,   # function
+        0.02,   # indent
+        0.04,   # module
+        0.15,   # operator
+        0.05,   # quote
+        0.15,   # variable
+        0.22,   # condition
+        0.08,   # Boundary
+        0.08    # Array
+        #  total 0.9
     ]
-    ERROR_RATES = {
-        'colon': 0.3,
-        'bracket': 0.2,
-        'indent': 0.15,
-        'quote': 0.1,
-        'comparison': 0.25,
-        'decorator': 0.1
-    }
+    MUTATION_TIMES_RATE = [
+        0.01,
+        0.04,
+        0.06,
+        0.09,
+        0.13,
+        0.17,
+        0.17,
+        0.13,
+        0.09,
+        0.06,
+        0.04,
+        0.01
+    ]

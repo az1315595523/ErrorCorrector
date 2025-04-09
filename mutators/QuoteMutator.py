@@ -4,8 +4,8 @@ import random
 
 
 class QuoteMutator(BaseMutator):
-    def __init__(self, mutate_rate=0.3):
-        super().__init__(mutate_rate)
+    def __init__(self):
+        super().__init__()
 
     def get_mutate_types(self):
         return ['QSingle_to_double', 'QUnterminated', 'QEscape_remove']
@@ -20,6 +20,9 @@ class QuoteMutator(BaseMutator):
 
                 mutation_type = self.select_mutation_type()
                 original_line = line
+
+                mutated_line = original_line
+                desc = ""
 
                 if mutation_type == 'QSingle_to_double':
                     mutated_line = line.replace("'", '"')

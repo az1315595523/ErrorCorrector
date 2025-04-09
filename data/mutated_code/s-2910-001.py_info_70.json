@@ -1,0 +1,9 @@
+{
+  "times": 1,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ColonMutator\nMutation Type: CReplace\nLine: 4\nOriginal Code: if b > 1:\nMutated Code: if b > 1;\nDescription: Replaced colon with semicolon at line 4\n",
+      "mutator_type": "ColonMutator"
+    }
+  ]
+}

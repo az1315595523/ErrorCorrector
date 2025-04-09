@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: b\nMutated Code: d\nDescription: Renamed 'b' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (d > 1)\n\nMutated Code: (d <= 1)\n\nDescription: Replaced Gt with LtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, d)\n\nMutated Code: range(4, d)\n\nDescription: RangeStartInc 3\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

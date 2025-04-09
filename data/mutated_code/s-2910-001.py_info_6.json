@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 5\nOriginal Code: b\nMutated Code: d\nDescription: Renamed 'b' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: c\nMutated Code: d\nDescription: Renamed 'c' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: BracketMutator\nMutation Type: BReplace\nLine: 2\nOriginal Code: d = int(input())\nMutated Code: d = int(input(])\nDescription: Replaced brackets with [] at lines 2-2\n",
+      "mutator_type": "BracketMutator"
+    }
+  ]
+}

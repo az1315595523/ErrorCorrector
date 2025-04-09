@@ -45,6 +45,12 @@ def main():
     else:
         print("Condition not met.")
 
+    for i in range(0, 5):
+        print("0")
+    for i in range(3):
+        print("1")
+    for i in range (1,10,2):
+        print("2")
     circle = Circle(stats["average"])
     print(f"Circle area: {circle.area()}")
 

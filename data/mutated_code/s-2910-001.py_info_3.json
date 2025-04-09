@@ -1,0 +1,9 @@
+{
+  "times": 1,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStopInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(1, b + 1)\n\nDescription: RangeStopInc 1\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

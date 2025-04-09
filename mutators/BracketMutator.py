@@ -4,8 +4,8 @@ import random
 
 
 class BracketMutator(BaseMutator):
-    def __init__(self, mutate_rate: float = 0.3):
-        super().__init__(mutate_rate)
+    def __init__(self):
+        super().__init__()
         self.BRACKET_PAIRS = {'(': ')', '[': ']', '{': '}'}
         self._mutation_applied = False
 
@@ -47,7 +47,7 @@ class BracketMutator(BaseMutator):
             desc = f"Replaced brackets with {new_pair[0]}{new_pair[1]} at lines {start_line + 1}-{end_line + 1}"
             self.successful = True
 
-        # 记录变异
+
         self.record_mutation(
             mutator_type="BracketMutator",
             mutate_type=mutation_type,
@@ -72,10 +72,10 @@ class BracketMutator(BaseMutator):
                     if stack and self.BRACKET_PAIRS[stack[-1][0]] == char:
                         start_char, start_pos, start_line = stack.pop()
                         bracket_pairs.append((
-                            start_pos,  # 开始位置
-                            pos,  # 结束位置
-                            start_line,  # 开始行
-                            line_num  # 结束行
+                            start_pos,
+                            pos,
+                            start_line,
+                            line_num
                         ))
 
         return bracket_pairs

@@ -23,8 +23,8 @@ class FunctionCollector(ast.NodeVisitor):
 
 
 class FunctionMutator(BaseMutator):
-    def __init__(self, error_rate: float = 0.3):
-        super().__init__(error_rate)
+    def __init__(self):
+        super().__init__()
 
         self.FUNCTION_REPLACEMENTS: Dict[str, List[str]] = {
             'min': ['max', 'sum'],

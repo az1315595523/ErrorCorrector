@@ -1,0 +1,13 @@
+{
+  "times": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 10\nOriginal Code: d\nMutated Code: x\nDescription: Renamed 'd' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ColonMutator\nMutation Type: CReplace\nLine: 4\nOriginal Code: if b > 1:\nMutated Code: if b > 1;\nDescription: Replaced colon with semicolon at line 4\n",
+      "mutator_type": "ColonMutator"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "times": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 6\nOriginal Code: x\nMutated Code: b\nDescription: Renamed 'x' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 10\nOriginal Code: d\nMutated Code: c\nDescription: Renamed 'd' to 'c'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QUnterminated\nLine: 8\nOriginal Code:     print('%.2f' % c)\nMutated Code:     print(%.2f' % c)\nDescription: Removed opening quote at line 8\n",
+      "mutator_type": "QuoteMutator"
+    }
+  ]
+}

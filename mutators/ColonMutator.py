@@ -5,8 +5,8 @@ import random
 
 
 class ColonMutator(BaseMutator):
-    def __init__(self, mutate_rate=0.3):
-        super().__init__(mutate_rate)
+    def __init__(self):
+        super().__init__()
 
     def get_mutate_types(self):
         return ['CRemove', 'CReplace']
