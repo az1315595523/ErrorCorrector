@@ -1,17 +1,19 @@
 {
+  "expectedTimes": 5,
   "times": 3,
+  "realTimes": 5,
   "single_Info": [
     {
-      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: b\nMutated Code: d\nDescription: Renamed 'b' to 'd'\n",
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: b\nMutated Code: c\nDescription: Renamed 'b' to 'c'\n",
       "mutator_type": "VariableNameMutator"
     },
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (d > 1)\n\nMutated Code: (d <= 1)\n\nDescription: Replaced Gt with LtE in comparison\n",
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (c > 1)\n\nMutated Code: (c <= 1)\n\nDescription: Replaced Gt with LtE in comparison\n",
       "mutator_type": "OperatorMutator"
     },
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, d)\n\nMutated Code: range(4, d)\n\nDescription: RangeStartInc 3\n",
-      "mutator_type": "BoundaryMutator"
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (c <= 1)\n\nMutated Code: (c < 1)\n\nDescription: CompareSubs: (c <= 1)\n → (c < 1)\n\n",
+      "mutator_type": "ConditionMutator"
     }
   ]
 }

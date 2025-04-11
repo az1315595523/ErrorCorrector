@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 7,
+  "times": 4,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: m\nMutated Code: list1\nDescription: Renamed 'm' to 'list1'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 3\nOriginal Code: min(...)\nMutated Code: max(...)\nDescription: Replaced function call min() with max()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (x == list1 or x == n)\n\nMutated Code: (x == list1 and x == n)\n\nDescription: LogicOpReverse: (x == list1 or x == n)\n → (x == list1 and x == n)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (x == list1 and x == n)\n\nMutated Code: x == list1\n\nDescription: PartialCondition: (x == list1 and x == n)\n → x == list1\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

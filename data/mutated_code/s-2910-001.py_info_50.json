@@ -1,9 +1,0 @@
-{
-  "times": 1,
-  "single_Info": [
-    {
-      "mutated_info": "Mutator: ColonMutator\nMutation Type: CRemove\nLine: 4\nOriginal Code: if b>1:\nMutated Code: if b>1\nDescription: Removed colon at line 4\n",
-      "mutator_type": "ColonMutator"
-    }
-  ]
-}

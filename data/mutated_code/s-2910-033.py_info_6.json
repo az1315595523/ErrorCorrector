@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 5,
+  "times": 3,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (n == 1)\n\nMutated Code: (n != 1)\n\nDescription: CompareSubs: (n == 1)\n → (n != 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (n != 1)\n\nMutated Code: (n <= 1)\n\nDescription: CompareSubs: (n != 1)\n → (n <= 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 7\nOriginal Code: range(n - 1)\n\nMutated Code: range(n - 1)\n\nDescription: RangeStartInc 3\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

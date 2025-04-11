@@ -1,13 +1,19 @@
 {
-  "times": 2,
+  "expectedTimes": 5,
+  "times": 3,
+  "realTimes": 5,
   "single_Info": [
     {
-      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: BoundaryAdjust: (b > 1)\n → (b >= 1)\n\n",
+      "mutated_info": "Mutator: IndentMutator\nMutation Type: IMix_tabs\nLine: 5\nOriginal Code:     for x in range(1,b):\nMutated Code:     for x in range(1,b):\nDescription: \n",
+      "mutator_type": "IndentMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b == 1)\n\nDescription: CompareSubs: (b > 1)\n → (b == 1)\n\n",
       "mutator_type": "ConditionMutator"
     },
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStopDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(1, b - 1)\n\nDescription: RangeStopDec 1\n",
-      "mutator_type": "BoundaryMutator"
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: x\nMutated Code: d\nDescription: Renamed 'x' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
     }
   ]
 }

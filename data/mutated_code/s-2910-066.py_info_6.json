@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 7,
+  "times": 2,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 8\nOriginal Code: (times == n)\n\nMutated Code: (times != n)\n\nDescription: Replaced Eq with NotEq in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: BracketMutator\nMutation Type: BDelete_end\nLine: 3\nOriginal Code: n = float(input())\nMutated Code: n = float(input()\nDescription: Deleted closing bracket at line 3\n",
+      "mutator_type": "BracketMutator"
+    }
+  ]
+}

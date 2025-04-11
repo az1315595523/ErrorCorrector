@@ -1,9 +1,0 @@
-{
-  "times": 1,
-  "single_Info": [
-    {
-      "mutated_info": "Mutator: BracketMutator\nMutation Type: BDelete_start\nLine: 2\nOriginal Code: b = int(input())\nMutated Code: b = int(input))\nDescription: Deleted opening bracket at line 2\n",
-      "mutator_type": "BracketMutator"
-    }
-  ]
-}

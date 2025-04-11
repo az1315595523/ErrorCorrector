@@ -44,27 +44,37 @@ class DataPipeline:
             mutators_with_none = self.mutators + [None]
             rates_with_none = CONFIG.MUTATION_RATE + [1 - sum(CONFIG.MUTATION_RATE)]
 
-            time = random.choices(range(12), weights=CONFIG.MUTATION_TIMES_RATE, k=1)[0]
-
-            for _ in range(100):
+            for i in range(10):
+                print("time:", i)
+                time = random.choices(range(12), weights=CONFIG.MUTATION_TIMES_RATE, k=1)[0]
                 mutators = random.choices(mutators_with_none, weights=rates_with_none, k=time)
                 mutated = original_code
                 singleMutationInfo = []
+                count = 0
                 for mutator in mutators:
+                    print("mutator:", type(mutator).__name__)
                     if mutator is None:
                         continue
                     try:
+                        print("ori:", mutated)
                         mutated = mutator.mutate(mutated)
+                        print("mutated:", mutated)
+                        print("info", mutator.mutation_record)
+                        print("isSuccessful:",mutator.successful)
+                        count += 1
                         if mutator.successful:
-                            mutator.successful = False
                             singleMutationInfo.append({
                                 'mutated_info': str(mutator.mutation_record),
                                 'mutator_type': type(mutator).__name__
                             })
+                            mutator.init()
                     except Exception as e:
+                        print(e)
                         break
                 total_Mutation_Info = {
+                    'expectedTimes': time,
                     'times': len(singleMutationInfo),
+                    'realTimes': count,
                     'single_Info': singleMutationInfo
                 }
                 samples.append({

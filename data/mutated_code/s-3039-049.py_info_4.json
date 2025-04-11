@@ -1,0 +1,31 @@
+{
+  "expectedTimes": 8,
+  "times": 6,
+  "realTimes": 8,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QEscape_remove\nLine: 9\nOriginal Code:         list1[jishu2]='c'\nMutated Code:         list1[jishu2]='c'\nDescription: \n",
+      "mutator_type": "QuoteMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 8\nOriginal Code: (x == a or x == b)\n\nMutated Code: (x == a and x == b)\n\nDescription: LogicOpReverse: (x == a or x == b)\n → (x == a and x == b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ArrayMutator\nMutation Type: IndexIncrement\nLine: 9\nOriginal Code: list1\n[jishu2\n]\nMutated Code: list1\n[(jishu2 + 1)\n]\nDescription: Array index mutated: jishu2\n → (jishu2 + 1)\n\n",
+      "mutator_type": "ArrayMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 12\nOriginal Code: (jishu1 > 0)\n\nMutated Code: (jishu1 == 0)\n\nDescription: Replaced Gt with Eq in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 12\nOriginal Code: (jishu1 == 0)\n\nMutated Code: (jishu1 == 0)\n\nDescription: BoundaryAdjust: (jishu1 == 0)\n → (jishu1 == 0)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 9\nOriginal Code: (jishu2 + 1)\n\nMutated Code: (jishu2 // 1)\n\nDescription: Replaced Add with FloorDiv in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

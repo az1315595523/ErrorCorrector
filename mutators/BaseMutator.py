@@ -36,9 +36,10 @@ class BaseMutator(ABC):
     @abstractmethod
     def mutate(self, code: str) -> str:
         pass
-
-    def should_mutate(self):
-        return random.random() < self.mutate_rate
+    @abstractmethod
+    def init(self):
+        self.successful = False
+        self.mutation_record = None
 
     def select_mutation_type(self):
         return random.choice(self.get_mutate_types())

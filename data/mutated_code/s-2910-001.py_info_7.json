@@ -1,17 +1,19 @@
 {
+  "expectedTimes": 4,
   "times": 3,
+  "realTimes": 4,
   "single_Info": [
     {
-      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QSingle_to_double\nLine: 8\nOriginal Code:     print(\"%.2f\"%d)\nMutated Code:     print(\"%.2f\"%d)\nDescription: Changed single to double quotes at line 8\n",
-      "mutator_type": "QuoteMutator"
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: Replaced Gt with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
     },
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(-2, b)\n\nDescription: RangeStartDec 3\n",
-      "mutator_type": "BoundaryMutator"
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b >= 1)\n\nMutated Code: (b < 1)\n\nDescription: Replaced GtE with Lt in comparison\n",
+      "mutator_type": "OperatorMutator"
     },
     {
-      "mutated_info": "Mutator: IndentMutator\nMutation Type: IRemove_space\nLine: 5\nOriginal Code:     print('%.2f' % d)\nMutated Code: print('%.2f' % d)\nDescription: Removed 4 spaces at line 5\n",
-      "mutator_type": "IndentMutator"
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (b < 1)\n\nMutated Code: (b <= 1)\n\nDescription: BoundaryAdjust: (b < 1)\n → (b <= 1)\n\n",
+      "mutator_type": "ConditionMutator"
     }
   ]
 }

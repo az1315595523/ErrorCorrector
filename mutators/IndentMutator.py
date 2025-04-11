@@ -9,7 +9,10 @@ class IndentMutator(BaseMutator):
 
     def get_mutate_types(self):
         return ['IAdd_space', 'IRemove_space', 'IMix_tabs']
-
+    
+    def init(self):
+        super().init()
+    
     def mutate(self, code) :
         lines = code.splitlines()
         for i, line in enumerate(lines):
@@ -22,11 +25,9 @@ class IndentMutator(BaseMutator):
                 if mutation_type == 'IAdd_space':
                     mutated_line = ' ' * (indent + 4) + line.lstrip()
                     desc = f"Added 4 spaces at line {i + 1}"
-                    self.successful = True
                 elif mutation_type == 'IRemove_space':
                     mutated_line = ' ' * max(0, indent - 4) + line.lstrip()
                     desc = f"Removed 4 spaces at line {i + 1}"
-                    self.successful = True
 
                 self.record_mutation(
                     mutator_type="IndentMutator",
@@ -36,6 +37,7 @@ class IndentMutator(BaseMutator):
                     mutated_code=mutated_line,
                     description=desc
                 )
+                self.successful = True
                 lines[i] = mutated_line
                 return '\n'.join(lines)
         return code

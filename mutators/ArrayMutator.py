@@ -26,6 +26,8 @@ class ArrayMutator(BaseMutator):
 
     def get_mutate_types(self):
         return ['IndexIncrement', 'IndexDecrement']
+    def init(self):
+        super().init()
 
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
@@ -48,7 +50,6 @@ class ArrayMutator(BaseMutator):
                     original_index = self._get_index_expression(node)
                     mutated_index = outer_self._mutate_index(node.slice, mutation_type)
 
-                    # 构建变异后的节点
                     new_node = ast.Subscript(
                         value=node.value,
                         slice=mutated_index,
@@ -56,7 +57,6 @@ class ArrayMutator(BaseMutator):
                     )
                     ast.copy_location(new_node, node)
 
-                    # 记录变异信息
                     outer_self.record_mutation(
                         mutator_type="ArrayMutator",
                         mutate_type=mutation_type,
@@ -65,6 +65,7 @@ class ArrayMutator(BaseMutator):
                         mutated_code=f"{ASTParser.tree_to_code(new_node.value)}[{ASTParser.tree_to_code(new_node.slice)}]",
                         description=f"Array index mutated: {original_index} → {ASTParser.tree_to_code(mutated_index)}"
                     )
+                    outer_self.successful = True
                     return new_node
                 return node
 
@@ -102,7 +103,6 @@ class ArrayMutator(BaseMutator):
     def _handle_binary_operation(self, node: ast.BinOp, mutation_type: str) -> ast.AST:
         delta_op = ast.Add() if mutation_type == 'IndexIncrement' else ast.Sub()
 
-        # 嵌套新的运算
         return ast.BinOp(
             left=node,
             op=delta_op,

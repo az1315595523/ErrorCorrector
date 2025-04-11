@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 10,
+  "times": 4,
+  "realTimes": 9,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (N == 1)\n\nMutated Code: (N == 1)\n\nDescription: BoundaryAdjust: (N == 1)\n → (N == 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % s)\n\nMutated Code: ('%.2f' // s)\n\nDescription: Replaced Mod with FloorDiv in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: N\nMutated Code: s\nDescription: Renamed 'N' to 's'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: QuoteMutator\nMutation Type: QUnterminated\nLine: 5\nOriginal Code:     print('%.2f' / h)\nMutated Code:     print(%.2f' / h)\nDescription: Removed opening quote at line 5\n",
+      "mutator_type": "QuoteMutator"
+    }
+  ]
+}

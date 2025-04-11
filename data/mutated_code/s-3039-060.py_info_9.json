@@ -1,0 +1,27 @@
+{
+  "expectedTimes": 10,
+  "times": 5,
+  "realTimes": 10,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (x != a and x != b)\n\nMutated Code: (x != a or x != b)\n\nDescription: LogicOpReverse: (x != a and x != b)\n → (x != a or x != b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: ls\nMutated Code: ls2\nDescription: Renamed 'ls' to 'ls2'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: ls2\nMutated Code: x\nDescription: Renamed 'ls2' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: a\nMutated Code: b\nDescription: Renamed 'a' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: b\nMutated Code: x\nDescription: Renamed 'b' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

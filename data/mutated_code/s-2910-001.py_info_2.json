@@ -1,8 +1,38 @@
 {
-  "times": 1,
+  "expectedTimes": 9,
+  "times": 8,
+  "realTimes": 9,
   "single_Info": [
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(2, b)\n\nDescription: RangeStartInc 1\n",
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: BoundaryAdjust: (b > 1)\n → (b >= 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b >= 1)\n\nMutated Code: (b <= 1)\n\nDescription: CompareSubs: (b >= 1)\n → (b <= 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % d)\n\nMutated Code: ('%.2f' * d)\n\nDescription: Replaced Mod with Mult in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (b <= 1)\n\nMutated Code: (b < 1)\n\nDescription: BoundaryAdjust: (b <= 1)\n → (b < 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: c\nMutated Code: x\nDescription: Renamed 'c' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' * d)\n\nMutated Code: ('%.2f' + d)\n\nDescription: Replaced Mult with Add in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b < 1)\n\nMutated Code: (b >= 1)\n\nDescription: CompareSubs: (b < 1)\n → (b >= 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(4, b)\n\nDescription: RangeStartInc 3\n",
       "mutator_type": "BoundaryMutator"
     }
   ]

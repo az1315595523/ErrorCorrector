@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 6,
+  "times": 4,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (x != a and x != b)\n\nMutated Code: (x != a or x != b)\n\nDescription: LogicOpReverse: (x != a and x != b)\n → (x != a or x != b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (x != a or x != b)\n\nMutated Code: x != a\n\nDescription: PartialCondition: (x != a or x != b)\n → x != a\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (x != a)\n\nMutated Code: (x > a)\n\nDescription: CompareSubs: (x != a)\n → (x > a)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ColonMutator\nMutation Type: CRemove\nLine: 5\nOriginal Code: for x in ls:\nMutated Code: for x in ls\nDescription: Removed colon at line 5\n",
+      "mutator_type": "ColonMutator"
+    }
+  ]
+}

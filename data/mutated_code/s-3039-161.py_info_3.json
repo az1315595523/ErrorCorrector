@@ -1,0 +1,11 @@
+{
+  "expectedTimes": 4,
+  "times": 1,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (x == c)\n\nMutated Code: (x <= c)\n\nDescription: Replaced Eq with LtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

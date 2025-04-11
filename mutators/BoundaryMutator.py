@@ -18,10 +18,16 @@ class BoundaryMutator(BaseMutator):
             'RangeStepInc',
             'RangeStepDec'
         ]
+    def init(self):
+        super().init()
+        self.original_code = None
 
     def shift_boundary(self, mutate_type, node):
         shiftScale = random.randint(1, 3)
+
         args = node.args
+
+        print("code2:", ASTParser.tree_to_code(node))
         if mutate_type == 'RangeStopInc':
             if isinstance(args[1], ast.Constant):
                 args[1].value += shiftScale
@@ -54,16 +60,20 @@ class BoundaryMutator(BaseMutator):
                 args[2] = ast.BinOp(left=args[2], op=ast.Sub(), right=ast.Constant(value=shiftScale))
 
         self.record_mutation(
-            mutator_type="OperatorMutator",
+            mutator_type="BoundaryMutator",
             mutate_type=mutate_type,
             line_num=getattr(node, 'lineno', 0),
             original_code=self.original_code,
             mutated_code=ASTParser.tree_to_code(node),
             description=f"{mutate_type} {shiftScale}"
         )
+        self.successful = True
         return node
 
     def mutate(self, code: str) -> str:
+
+        self.code = code
+        print("code1:", self.code)
 
         tree = ASTParser.parse_to_tree(code)
 
@@ -87,8 +97,8 @@ class BoundaryMutator(BaseMutator):
                     else:
                         mutate_types = mutate_types[0:5]
                         mutate_type = random.choice(mutate_types)
-                    outer_self.successful = True
-                    return outer_self.shift_boundary(mutate_type, node.iter)
+                    node.iter = outer_self.shift_boundary(mutate_type, node.iter)
+                    return node
 
                 return node
 

@@ -1,9 +1,19 @@
 {
-  "times": 1,
+  "expectedTimes": 3,
+  "times": 3,
+  "realTimes": 3,
   "single_Info": [
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(0, b)\n\nDescription: RangeStartDec 1\n",
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(4, b)\n\nDescription: RangeStartInc 3\n",
       "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStopInc\nLine: 5\nOriginal Code: range(4, b)\n\nMutated Code: range(4, b + 2)\n\nDescription: RangeStopInc 2\n",
+      "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b == 1)\n\nDescription: CompareSubs: (b > 1)\n → (b == 1)\n\n",
+      "mutator_type": "ConditionMutator"
     }
   ]
 }

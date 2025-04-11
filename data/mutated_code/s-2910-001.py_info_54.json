@@ -1,9 +1,0 @@
-{
-  "times": 1,
-  "single_Info": [
-    {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: RangeStartDec\nLine: 5\nOriginal Code: range(1, b)\n\nMutated Code: range(-2, b)\n\nDescription: RangeStartDec 3\n",
-      "mutator_type": "BoundaryMutator"
-    }
-  ]
-}

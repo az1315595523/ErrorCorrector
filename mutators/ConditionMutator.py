@@ -20,6 +20,10 @@ class ConditionMutator(OperatorMutator):
     def get_mutate_types(self):
         return self.mutate_types
 
+    def init(self):
+        super().init()
+        self.condition_nodes = []
+
     def mutate(self, code: str) -> str:
         self.code_lines = code.split('\n')
         tree = ASTParser.parse_to_tree(code)
@@ -69,6 +73,7 @@ class ConditionMutator(OperatorMutator):
                         mutated_code=mutated_code,
                         description=f"{outer_self.mutate_type}: {original_code} → {mutated_code}"
                     )
+                    outer_self.successful = True
                     node.test = new_test
                 return node
 

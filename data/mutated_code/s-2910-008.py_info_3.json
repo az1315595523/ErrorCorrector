@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 4,
+  "times": 3,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 4\nOriginal Code: l\nMutated Code: N\nDescription: Renamed 'l' to 'N'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 3\nOriginal Code: h\nMutated Code: N\nDescription: Renamed 'h' to 'N'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: BracketMutator\nMutation Type: BDelete_start\nLine: 2\nOriginal Code: N = eval(input())\nMutated Code: N = evalinput())\nDescription: Deleted opening bracket at line 2\n",
+      "mutator_type": "BracketMutator"
+    }
+  ]
+}

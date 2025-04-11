@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 6,
+  "times": 3,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: x\nMutated Code: jishu1\nDescription: Renamed 'x' to 'jishu1'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 3\nOriginal Code: max(...)\nMutated Code: abs(...)\nDescription: Replaced function call max() with abs()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 12\nOriginal Code: (jishu1 > 0)\n\nMutated Code: (jishu1 >= 0)\n\nDescription: Replaced Gt with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

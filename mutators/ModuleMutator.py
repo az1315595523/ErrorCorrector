@@ -54,7 +54,8 @@ class ModuleMutator(BaseMutator):
             'subprocess': ['os', 'multiprocessing', 'asyncio'],
             'logging': ['loguru', 'structlog', 'syslog']
         }
-
+    def init(self):
+        super().init()
     def get_mutate_types(self) -> List[str]:
         return ['ModuleReplace']
 
@@ -98,6 +99,7 @@ class ModuleMutator(BaseMutator):
                             mutated_code=mutated_code,
                             description=f"Replaced module {old_module} with {new_module}"
                         )
+                        outer_self.successful = True
                 return node
 
             def visit_ImportFrom(self, node):
@@ -118,6 +120,7 @@ class ModuleMutator(BaseMutator):
                         mutated_code=mutated_code,
                         description=f"Replaced module {old_module} with {new_module}"
                     )
+                    outer_self.successful = True
                 return node
 
             def visit_Attribute(self, node):

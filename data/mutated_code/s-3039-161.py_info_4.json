@@ -1,0 +1,31 @@
+{
+  "expectedTimes": 10,
+  "times": 6,
+  "realTimes": 10,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 3\nOriginal Code: min(...)\nMutated Code: abs(...)\nDescription: Replaced function call min() with abs()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (x == b or x == c)\n\nMutated Code: x == c\n\nDescription: PartialCondition: (x == b or x == c)\n → x == c\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 6\nOriginal Code: (x == c)\n\nMutated Code: (x == c)\n\nDescription: BoundaryAdjust: (x == c)\n → (x == c)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 2\nOriginal Code: max(...)\nMutated Code: abs(...)\nDescription: Replaced function call max() with abs()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 6\nOriginal Code: (x == c)\n\nMutated Code: (x == c)\n\nDescription: BoundaryAdjust: (x == c)\n → (x == c)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: d\nMutated Code: c\nDescription: Renamed 'd' to 'c'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

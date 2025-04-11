@@ -27,16 +27,18 @@ class FunctionMutator(BaseMutator):
         super().__init__()
 
         self.FUNCTION_REPLACEMENTS: Dict[str, List[str]] = {
-            'min': ['max', 'sum'],
-            'max': ['min', 'abs'],
+            'min': ['max', 'sum','abs'],
+            'max': ['min', 'abs','sum'],
             'len': ['sum'],
             'sorted': ['reversed'],
             'abs': ['round'],
-            'print': ['str', 'repr'],
         }
 
     def get_mutate_types(self) -> List[str]:
         return ['FunctionReplace']
+
+    def init(self):
+        super().init()
 
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
@@ -55,6 +57,7 @@ class FunctionMutator(BaseMutator):
         old_func = random.choice(replaceable_funcs)
         new_func = random.choice(self.FUNCTION_REPLACEMENTS[old_func])
 
+        outer_self = self
         class FunctionRenamer(ast.NodeTransformer):
             def visit_Call(self, node):
                 if isinstance(node.func, ast.Name) and node.func.id == old_func:
@@ -69,9 +72,9 @@ class FunctionMutator(BaseMutator):
                         mutated_code=mutated_code,
                         description=f"Replaced function call {old_func}() with {new_func}()"
                     )
+                    outer_self.successful = True
                 return self.generic_visit(node)
 
-        outer_self = self
         mutated_tree = FunctionRenamer().visit(tree)
         ast.fix_missing_locations(mutated_tree)
         return ASTParser.tree_to_code(mutated_tree)

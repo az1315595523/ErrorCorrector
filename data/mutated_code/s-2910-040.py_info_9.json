@@ -1,0 +1,11 @@
+{
+  "expectedTimes": 7,
+  "times": 1,
+  "realTimes": 7,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: s\nMutated Code: h\nDescription: Renamed 's' to 'h'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-{
-  "times": 1,
-  "single_Info": [
-    {
-      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 10\nOriginal Code: d\nMutated Code: b\nDescription: Renamed 'd' to 'b'\n",
-      "mutator_type": "VariableNameMutator"
-    }
-  ]
-}

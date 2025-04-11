@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 8,
+  "times": 4,
+  "realTimes": 8,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 4\nOriginal Code: range(n - 1)\n\nMutated Code: range(n - 1)\n\nDescription: RangeStartInc 1\n",
+      "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 6\nOriginal Code: ('%.2f' % sums)\n\nMutated Code: ('%.2f' // sums)\n\nDescription: Replaced Mod with FloorDiv in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 6\nOriginal Code: ('%.2f' // sums)\n\nMutated Code: ('%.2f' * sums)\n\nDescription: Replaced FloorDiv with Mult in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: x\nMutated Code: h\nDescription: Renamed 'x' to 'h'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

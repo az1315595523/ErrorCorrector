@@ -11,6 +11,9 @@ class ColonMutator(BaseMutator):
     def get_mutate_types(self):
         return ['CRemove', 'CReplace']
 
+    def init(self):
+        super().init()
+
     def mutate(self, code):
         tree = ASTParser.parse_to_tree(code)
         if not tree:
@@ -28,11 +31,9 @@ class ColonMutator(BaseMutator):
                     if mutation_type == 'CRemove':
                         mutated_line = original_line[:colon_pos] + original_line[colon_pos + 1:]
                         desc = f"Removed colon at line {line_num + 1}"
-                        self.successful = True
                     else:
                         mutated_line = original_line[:colon_pos] + ';' + original_line[colon_pos + 1:]
                         desc = f"Replaced colon with semicolon at line {line_num + 1}"
-                        self.successful = True
 
                     self.record_mutation(
                         mutator_type="ColonMutator",
@@ -42,6 +43,7 @@ class ColonMutator(BaseMutator):
                         mutated_code=mutated_line,
                         description=desc
                     )
+                    self.successful = True
                     lines[line_num] = mutated_line
                     return '\n'.join(lines)
         return code

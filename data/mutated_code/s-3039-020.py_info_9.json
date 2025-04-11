@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 6,
+  "times": 3,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: lst1\nMutated Code: lst\nDescription: Renamed 'lst1' to 'lst'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: x\nMutated Code: a\nDescription: Renamed 'x' to 'a'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (a == a or a == b)\n\nMutated Code: a == a\n\nDescription: PartialCondition: (a == a or a == b)\n → a == a\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

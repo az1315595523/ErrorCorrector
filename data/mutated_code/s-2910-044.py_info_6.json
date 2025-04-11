@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 5,
+  "times": 3,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: x\nMutated Code: i\nDescription: Renamed 'x' to 'i'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 8\nOriginal Code: ('%.2f' % c)\n\nMutated Code: ('%.2f' / c)\n\nDescription: Replaced Mod with Div in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: IndentMutator\nMutation Type: IAdd_space\nLine: 5\nOriginal Code:     i = 0.5 + i\nMutated Code:         i = 0.5 + i\nDescription: Added 4 spaces at line 5\n",
+      "mutator_type": "IndentMutator"
+    }
+  ]
+}

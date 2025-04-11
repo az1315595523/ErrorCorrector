@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 7,
+  "times": 4,
+  "realTimes": 7,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: c\nMutated Code: b\nDescription: Renamed 'c' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: a\nMutated Code: x\nDescription: Renamed 'a' to 'x'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 4\nOriginal Code: range(b - 1)\n\nMutated Code: range(b - 1)\n\nDescription: RangeStartInc 1\n",
+      "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 4\nOriginal Code: range(b - 1)\n\nMutated Code: range(b - 1)\n\nDescription: RangeStartInc 1\n",
+      "mutator_type": "BoundaryMutator"
+    }
+  ]
+}

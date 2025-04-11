@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 5,
+  "times": 3,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 2\nOriginal Code: max(...)\nMutated Code: abs(...)\nDescription: Replaced function call max() with abs()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: x\nMutated Code: a\nDescription: Renamed 'x' to 'a'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (a == c)\n\nMutated Code: (a <= c)\n\nDescription: Replaced Eq with LtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

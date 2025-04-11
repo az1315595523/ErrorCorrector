@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 6,
+  "times": 4,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (x == b or x == c)\n\nMutated Code: x == c\n\nDescription: PartialCondition: (x == b or x == c)\n → x == c\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (x == c)\n\nMutated Code: (x >= c)\n\nDescription: Replaced Eq with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (x >= c)\n\nMutated Code: (x < c)\n\nDescription: Replaced GtE with Lt in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 6\nOriginal Code: (x < c)\n\nMutated Code: (x <= c)\n\nDescription: BoundaryAdjust: (x < c)\n → (x <= c)\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

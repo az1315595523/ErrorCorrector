@@ -1,0 +1,27 @@
+{
+  "expectedTimes": 6,
+  "times": 5,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 6\nOriginal Code: b\nMutated Code: d\nDescription: Renamed 'b' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: x\nMutated Code: d\nDescription: Renamed 'x' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (d == d or d == c)\n\nMutated Code: d == d\n\nDescription: PartialCondition: (d == d or d == c)\n → d == d\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: a\nMutated Code: c\nDescription: Renamed 'a' to 'c'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 6\nOriginal Code: (d == d)\n\nMutated Code: (d == d)\n\nDescription: BoundaryAdjust: (d == d)\n → (d == d)\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

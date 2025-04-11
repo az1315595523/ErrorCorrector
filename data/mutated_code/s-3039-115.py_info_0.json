@@ -1,0 +1,31 @@
+{
+  "expectedTimes": 8,
+  "times": 6,
+  "realTimes": 8,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: i\nMutated Code: nums\nDescription: Renamed 'i' to 'nums'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: nums\nMutated Code: L\nDescription: Renamed 'nums' to 'L'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (L == a or L == b)\n\nMutated Code: (L == a and L == b)\n\nDescription: LogicOpReverse: (L == a or L == b)\n → (L == a and L == b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: b\nMutated Code: a\nDescription: Renamed 'b' to 'a'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (L == a)\n\nMutated Code: (L <= a)\n\nDescription: Replaced Eq with LtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: L\nMutated Code: a\nDescription: Renamed 'L' to 'a'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

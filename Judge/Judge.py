@@ -1,88 +1,79 @@
-import subprocess
-import json
 import os
-import tempfile
+import xml.etree.ElementTree as ET
+import subprocess
+import ast
 
 
-class SimpleJudge:
-    def __init__(self, test_case_file):
-        self.test_cases = self.load_test_cases(test_case_file)
-        self.timeout = self.test_cases['timeout']
+def get_test_data(rule_file):
+    tree = ET.parse(rule_file)
+    root = tree.getroot()
+    test_data = []
 
-    @staticmethod
-    def load_test_cases(file_path):
-        with open(file_path, 'r') as f:
-            return json.load(f)
+    for test_node in root:
+        input_elem = test_node.find('input')
+        output_elem = test_node.find('output')
 
-    def run_test(self, code_path):
-        results = []
-        for case in self.test_cases['test_cases']:
+        if input_elem is not None and output_elem is not None:
+
+            input_lines = [line.strip() for line in input_elem.text.strip().split('\n') if line.strip()]
             try:
-                # 创建临时输入文件
-                with tempfile.NamedTemporaryFile(mode='w+', delete=False) as input_file:
-                    input_file.write(case['input'])
-                    input_file.seek(0)
+                input_data = [int(line) for line in input_lines]
+            except ValueError as e:
+                print(f"Invalid input format in {test_node.tag}: {e}")
+                continue
 
-                # 执行代码
-                result = subprocess.run(
-                    ['python', code_path],
-                    stdin=open(input_file.name, 'r'),
-                    capture_output=True,
-                    text=True,
-                    timeout=self.timeout
-                )
+            output_str = output_elem.text.strip()
+            try:
+                output_data = float(output_str)
+            except ValueError as e:
+                print(f"Invalid output format in {test_node.tag}: {e}")
+                continue
 
-                # 清理临时文件
-                os.unlink(input_file.name)
+            test_data.append((input_data, output_data))
 
-                # 获取输出
-                output = result.stdout.strip()
-                error = result.stderr.strip()
+    print(test_data)
+    return test_data
 
-                # 判断结果
-                passed = output == case['output']
-                results.append({
-                    'input': case['input'],
-                    'expected': case['output'],
-                    'actual': output,
-                    'passed': passed,
-                    'error': error if error else None
-                })
 
-            except subprocess.TimeoutExpired:
-                results.append({
-                    'input': case['input'],
-                    'error': 'Timeout'
-                })
-            except Exception as e:
-                results.append({
-                    'input': case['input'],
-                    'error': f'System error: {str(e)}'
-                })
-
-        return results
-
-    def print_result(self, results):
-        print(f"评测结果 ({len(results)} 个测试用例)")
-        print("=" * 40)
-
-        for i, res in enumerate(results, 1):
-            print(f"测试用例 {i}:")
-            print(f"输入:\n{res['input']}")
-            if 'expected' in res:
-                print(f"预期输出: {res['expected']}")
-                print(f"实际输出: {res['actual']}")
-                print(f"错误信息: {res['error'] or '无'}")
-                print(f"状态: {'通过' if res['passed'] else '失败'}")
+def run_test_data(py_file, test_data):
+    score = 0
+    for input_data, expected_output in test_data:
+        try:
+            input_str = '\n'.join(map(str, input_data))
+            result = subprocess.run(['python', py_file], input=input_str,
+                                    capture_output=True, text=True, timeout=5)
+            # print("result", result)
+            if result.returncode == 0:
+                try:
+                    actual_output = ast.literal_eval(result.stdout.strip())
+                    # print("actual_output:", actual_output)
+                    # print("expected_output:", expected_output)
+                    if actual_output == expected_output:
+                        score += 1
+                except SyntaxError:
+                    print(f"Syntax error in output of {py_file}")
             else:
-                print(f"发生错误: {res['error']}")
-            print("-" * 40)
+                if 'SyntaxError' in result.stderr:
+                    print(f"syntax_error in {py_file}: {result.stderr.strip()}")
+                else:
+                    print(f"run_time_error in {py_file}: {result.stderr.strip()}")
+        except subprocess.TimeoutExpired:
+            print(f"Timeout error in {py_file}")
+    return score
 
-        passed = sum(1 for res in results if res.get('passed', False))
-        print(f"最终结果: {passed}/{len(results)} 通过")
+
+code_dir = 'code'
+rule_dir = 'rule'
+for folder in os.listdir(code_dir):
+    folder_path = os.path.join(code_dir, folder)
+    if os.path.isdir(folder_path):
+        rule_file = os.path.join(rule_dir, folder + '.xml')
+        if os.path.exists(rule_file):
+            test_data = get_test_data(rule_file)
+            for py_file in os.listdir(folder_path):
+                if py_file.endswith('.py'):
+                    py_file_path = os.path.join(folder_path, py_file)
+                    score = run_test_data(py_file_path, test_data)
+                    print(f"Score for {py_file_path}: {score}")
 
 
-if __name__ == "__main__":
-    judge = SimpleJudge('test_cases/add_two_numbers.json')
-    results = judge.run_test('submissions/user_code.py')
-    judge.print_result(results)

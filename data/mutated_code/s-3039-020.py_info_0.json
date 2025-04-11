@@ -1,0 +1,31 @@
+{
+  "expectedTimes": 8,
+  "times": 6,
+  "realTimes": 8,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (x == b)\n\nMutated Code: (x != b)\n\nDescription: Replaced Eq with NotEq in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: lst1\nMutated Code: lst\nDescription: Renamed 'lst1' to 'lst'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (x < a or x != b)\n\nMutated Code: (x < a and x != b)\n\nDescription: LogicOpReverse: (x < a or x != b)\n → (x < a and x != b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (x < a and x != b)\n\nMutated Code: (x < a or x != b)\n\nDescription: LogicOpReverse: (x < a and x != b)\n → (x < a or x != b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: x\nMutated Code: b\nDescription: Renamed 'x' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (b < a or b != b)\n\nMutated Code: b != b\n\nDescription: PartialCondition: (b < a or b != b)\n → b != b\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

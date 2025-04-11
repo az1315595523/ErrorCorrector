@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 4,
+  "times": 3,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: i == b\n\nDescription: PartialCondition: (i == a or i == b)\n → i == b\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 6\nOriginal Code: (i == b)\n\nMutated Code: (i == b)\n\nDescription: BoundaryAdjust: (i == b)\n → (i == b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i == b)\n\nMutated Code: (i > b)\n\nDescription: CompareSubs: (i == b)\n → (i > b)\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 6,
+  "times": 2,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: x\nMutated Code: d\nDescription: Renamed 'x' to 'd'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (d == b or d == c)\n\nMutated Code: d == c\n\nDescription: PartialCondition: (d == b or d == c)\n → d == c\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

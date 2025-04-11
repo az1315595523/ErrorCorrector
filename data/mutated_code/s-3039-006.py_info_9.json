@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 7,
+  "times": 3,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i == b)\n\nMutated Code: (i >= b)\n\nDescription: Replaced Eq with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i >= b)\n\nMutated Code: (i == b)\n\nDescription: Replaced GtE with Eq in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: BracketMutator\nMutation Type: BAdd_extra\nLine: 4\nOriginal Code: ls2 = ls1.copy()\nMutated Code: ls2 = ls1.copy{()\nDescription: Added extra opening { at line 4\n",
+      "mutator_type": "BracketMutator"
+    }
+  ]
+}

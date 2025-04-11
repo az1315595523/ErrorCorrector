@@ -1,0 +1,31 @@
+{
+  "expectedTimes": 7,
+  "times": 6,
+  "realTimes": 7,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: BoundaryMutator\nMutation Type: RangeStartInc\nLine: 7\nOriginal Code: range(n - 1)\n\nMutated Code: range(n - 1)\n\nDescription: RangeStartInc 3\n",
+      "mutator_type": "BoundaryMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: i\nMutated Code: h\nDescription: Renamed 'i' to 'h'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 9\nOriginal Code: h\nMutated Code: kong\nDescription: Renamed 'h' to 'kong'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: n\nMutated Code: kong\nDescription: Renamed 'n' to 'kong'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (kong == 1)\n\nMutated Code: (kong <= 1)\n\nDescription: Replaced Eq with LtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: BoundaryAdjust\nLine: 4\nOriginal Code: (kong <= 1)\n\nMutated Code: (kong < 1)\n\nDescription: BoundaryAdjust: (kong <= 1)\n → (kong < 1)\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

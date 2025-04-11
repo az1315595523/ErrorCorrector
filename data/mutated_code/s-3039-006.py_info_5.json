@@ -1,0 +1,27 @@
+{
+  "expectedTimes": 5,
+  "times": 5,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i == b)\n\nMutated Code: (i > b)\n\nDescription: Replaced Eq with Gt in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i < a or i > b)\n\nMutated Code: i > b\n\nDescription: PartialCondition: (i < a or i > b)\n → i > b\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 2\nOriginal Code: max(...)\nMutated Code: min(...)\nDescription: Replaced function call max() with min()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 3\nOriginal Code: min(...)\nMutated Code: sum(...)\nDescription: Replaced function call min() with sum()\n",
+      "mutator_type": "FunctionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i > b)\n\nMutated Code: (i != b)\n\nDescription: Replaced Gt with NotEq in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

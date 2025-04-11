@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 4,
+  "times": 2,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: LogicOpReverse\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: (i == a and i == b)\n\nDescription: LogicOpReverse: (i == a or i == b)\n → (i == a and i == b)\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 6\nOriginal Code: a\nMutated Code: nums\nDescription: Renamed 'a' to 'nums'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

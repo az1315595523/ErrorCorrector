@@ -1,0 +1,19 @@
+{
+  "expectedTimes": 3,
+  "times": 3,
+  "realTimes": 3,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: s\nMutated Code: times\nDescription: Renamed 's' to 'times'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: height\nMutated Code: times\nDescription: Renamed 'height' to 'times'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 7\nOriginal Code: (times + 1)\n\nMutated Code: (times // 1)\n\nDescription: Replaced Add with FloorDiv in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

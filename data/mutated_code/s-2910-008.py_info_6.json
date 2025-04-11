@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 6,
+  "times": 2,
+  "realTimes": 6,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 3\nOriginal Code: h\nMutated Code: l\nDescription: Renamed 'h' to 'l'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 4\nOriginal Code: ('%.2f' % l)\n\nMutated Code: ('%.2f' // l)\n\nDescription: Replaced Mod with FloorDiv in binary operation\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

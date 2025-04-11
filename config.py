@@ -3,18 +3,18 @@ class CONFIG:
     OUTPUT_DIR = 'data/mutated_code'
 
     MUTATION_RATE = [
-        0.01,   # bracket
-        0.02,   # colon
-        0.08,   # function
-        0.02,   # indent
-        0.04,   # module
-        0.15,   # operator
-        0.05,   # quote
-        0.15,   # variable
-        0.22,   # condition
-        0.08,   # Boundary
-        0.08    # Array
-        #  total 0.9
+        0.005,   # bracket
+        0.005,   # colon
+        0.080,   # function
+        0.005,   # indent
+        0.040,   # module
+        0.200,   # operator
+        0.005,   # quote
+        0.200,   # variable
+        0.200,   # condition
+        0.120,   # Boundary
+        0.120    # Array
+        #  total 0.98
     ]
     MUTATION_TIMES_RATE = [
         0.01,

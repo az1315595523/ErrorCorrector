@@ -1,0 +1,11 @@
+{
+  "expectedTimes": 1,
+  "times": 1,
+  "realTimes": 1,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: i == a\n\nDescription: PartialCondition: (i == a or i == b)\n → i == a\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

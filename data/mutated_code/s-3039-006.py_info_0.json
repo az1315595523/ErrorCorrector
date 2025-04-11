@@ -1,0 +1,23 @@
+{
+  "expectedTimes": 6,
+  "times": 4,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: ls2\nMutated Code: ls1\nDescription: Renamed 'ls2' to 'ls1'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 7\nOriginal Code: i\nMutated Code: ls1\nDescription: Renamed 'i' to 'ls1'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: ls1\nMutated Code: b\nDescription: Renamed 'ls1' to 'b'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: ColonMutator\nMutation Type: CRemove\nLine: 5\nOriginal Code: for b in b:\nMutated Code: for b in b\nDescription: Removed colon at line 5\n",
+      "mutator_type": "ColonMutator"
+    }
+  ]
+}

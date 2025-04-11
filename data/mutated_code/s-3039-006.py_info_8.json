@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 2,
+  "times": 2,
+  "realTimes": 2,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: i == b\n\nDescription: PartialCondition: (i == a or i == b)\n → i == b\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: FunctionMutator\nMutation Type: FunctionReplace\nLine: 2\nOriginal Code: max(...)\nMutated Code: abs(...)\nDescription: Replaced function call max() with abs()\n",
+      "mutator_type": "FunctionMutator"
+    }
+  ]
+}

@@ -12,10 +12,12 @@ class BracketMutator(BaseMutator):
     def get_mutate_types(self):
         return ['BDelete_start', 'BDelete_end', 'BAdd_extra', 'BReplace']
 
-    def mutate(self, code: str) -> str:
+    def init(self):
+        super().init()
         self._mutation_applied = False
-        lines = code.splitlines()
 
+    def mutate(self, code: str) -> str:
+        lines = code.splitlines()
         bracket_pairs = self._find_all_bracket_pairs(code)
         if not bracket_pairs:
             return code
@@ -26,26 +28,21 @@ class BracketMutator(BaseMutator):
         original_start_line = lines[start_line]
         original_end_line = lines[end_line] if start_line != end_line else original_start_line
 
-        # 执行变异
         if mutation_type == 'BDelete_start':
             lines[start_line] = original_start_line[:start_pos] + original_start_line[start_pos + 1:]
             desc = f"Deleted opening bracket at line {start_line + 1}"
-            self.successful = True
         elif mutation_type == 'BDelete_end':
             lines[end_line] = original_end_line[:end_pos] + original_end_line[end_pos + 1:]
             desc = f"Deleted closing bracket at line {end_line + 1}"
-            self.successful = True
         elif mutation_type == 'BAdd_extra':
             new_bracket = random.choice(list(self.BRACKET_PAIRS.keys()))
             lines[start_line] = original_start_line[:start_pos] + new_bracket + original_start_line[start_pos:]
             desc = f"Added extra opening {new_bracket} at line {start_line + 1}"
-            self.successful = True
         elif mutation_type == 'BReplace':
             new_pair = random.choice(list(self.BRACKET_PAIRS.items()))
             lines[start_line] = original_start_line[:start_pos] + new_pair[0] + original_start_line[start_pos + 1:]
             lines[end_line] = original_end_line[:end_pos] + new_pair[1] + original_end_line[end_pos + 1:]
             desc = f"Replaced brackets with {new_pair[0]}{new_pair[1]} at lines {start_line + 1}-{end_line + 1}"
-            self.successful = True
 
 
         self.record_mutation(
@@ -56,6 +53,7 @@ class BracketMutator(BaseMutator):
             mutated_code=lines[start_line],
             description=desc
         )
+        self.successful = True
 
         return '\n'.join(lines)
 

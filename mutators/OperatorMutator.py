@@ -36,6 +36,12 @@ class OperatorMutator(BaseMutator):
     def get_mutate_types(self):
         return ['BinOpSubs', 'CompareSubs']
 
+    def init(self):
+        super().init()
+        self.find_BinOp = False
+        self.find_Compare = False
+        self.code_lines = []
+
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
 

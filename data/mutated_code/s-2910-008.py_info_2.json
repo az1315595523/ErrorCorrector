@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 5,
+  "times": 2,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 4\nOriginal Code: l\nMutated Code: h\nDescription: Renamed 'l' to 'h'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VRenew\nLine: 3\nOriginal Code: N\nMutated Code: h\nDescription: Renamed 'N' to 'h'\n",
+      "mutator_type": "VariableNameMutator"
+    }
+  ]
+}

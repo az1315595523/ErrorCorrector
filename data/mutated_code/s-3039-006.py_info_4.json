@@ -1,0 +1,15 @@
+{
+  "expectedTimes": 4,
+  "times": 2,
+  "realTimes": 4,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: i == a\n\nDescription: PartialCondition: (i == a or i == b)\n → i == a\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i == a)\n\nMutated Code: (i >= a)\n\nDescription: Replaced Eq with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    }
+  ]
+}

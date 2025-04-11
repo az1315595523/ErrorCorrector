@@ -1,0 +1,27 @@
+{
+  "expectedTimes": 5,
+  "times": 5,
+  "realTimes": 5,
+  "single_Info": [
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: PartialCondition\nLine: 6\nOriginal Code: (i == a or i == b)\n\nMutated Code: i == b\n\nDescription: PartialCondition: (i == a or i == b)\n → i == b\n\n",
+      "mutator_type": "ConditionMutator"
+    },
+    {
+      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i == b)\n\nMutated Code: (i >= b)\n\nDescription: Replaced Eq with GtE in comparison\n",
+      "mutator_type": "OperatorMutator"
+    },
+    {
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 8\nOriginal Code: L\nMutated Code: i\nDescription: Renamed 'L' to 'i'\n",
+      "mutator_type": "VariableNameMutator"
+    },
+    {
+      "mutated_info": "Mutator: IndentMutator\nMutation Type: IMix_tabs\nLine: 6\nOriginal Code:     if i >= b:\nMutated Code:     if i >= b:\nDescription: \n",
+      "mutator_type": "IndentMutator"
+    },
+    {
+      "mutated_info": "Mutator: ConditionMutator\nMutation Type: CompareSubs\nLine: 6\nOriginal Code: (i >= b)\n\nMutated Code: (i == b)\n\nDescription: CompareSubs: (i >= b)\n → (i == b)\n\n",
+      "mutator_type": "ConditionMutator"
+    }
+  ]
+}

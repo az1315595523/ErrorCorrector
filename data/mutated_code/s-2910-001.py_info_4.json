@@ -1,13 +1,11 @@
 {
-  "times": 2,
+  "expectedTimes": 1,
+  "times": 1,
+  "realTimes": 1,
   "single_Info": [
     {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: CompareSubs\nLine: 4\nOriginal Code: (b > 1)\n\nMutated Code: (b >= 1)\n\nDescription: Replaced Gt with GtE in comparison\n",
-      "mutator_type": "OperatorMutator"
-    },
-    {
-      "mutated_info": "Mutator: OperatorMutator\nMutation Type: BinOpSubs\nLine: 10\nOriginal Code: ('%.2f' % d)\n\nMutated Code: ('%.2f' ** d)\n\nDescription: Replaced Mod with Pow in binary operation\n",
-      "mutator_type": "OperatorMutator"
+      "mutated_info": "Mutator: VariableNameMutator\nMutation Type: VReplace\nLine: 5\nOriginal Code: b\nMutated Code: c\nDescription: Renamed 'b' to 'c'\n",
+      "mutator_type": "VariableNameMutator"
     }
   ]
 }

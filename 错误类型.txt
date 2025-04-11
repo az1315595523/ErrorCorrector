@@ -1,4 +1,4 @@
-1.grammar error 
+1.syntax error 
 ---bracket_mismatched_error
 ---colon_error
 ---indent_error
