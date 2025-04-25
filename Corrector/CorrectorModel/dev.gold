@@ -1,0 +1,1132 @@
+
+h = eval(input())
+n = eval(input())
+if n==1:
+    l=h
+elif n==2:
+    l=h*2
+else:
+    l=h*2
+    for i in range(1,n-1):
+        h = h*0.5
+        l+=h
+print("%.2f"%l)
+
+h = eval(input())
+N = eval(input())
+num1 = 0
+if N == 1:
+    num1 = h
+else:
+    num1 += h
+    for x in range(2, N + 1):
+        H = h * 0.5 ** (x - 1)
+        num1 += H * 2
+print("%.2f" % num1)
+
+
+
+list_1=eval(input())
+a=max(list_1)
+min=min(list_1)
+nums=list_1.copy()
+for i in nums:
+   if i==a:
+      list_1.remove(i)
+   elif i==min:
+      list_1.remove(i)
+print(list_1)
+
+
+a=eval(input())
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+h = int(input())
+n = int(input())
+total_h = h
+for i in range(n-1):
+    total_h += h*(0.5)**i
+print("%.2f"%total_h)
+
+# 读取输入的整数列表
+input_list = eval(input())
+
+# 如果列表为空，则输出空列表
+if not input_list:
+    print([])
+
+# 寻找最大和最小元素的值
+max_value = max(input_list)
+min_value = min(input_list)
+
+# 删除所有最大和最小元素
+output_list = [x for x in input_list if x != max_value and x != min_value]
+
+# 输出删除最大和最小元素后的列表
+print(output_list)
+
+
+ls=eval(input())
+a=max(ls)
+b=min(ls)
+while a in ls:
+    ls.remove(a)
+while b in ls:
+    ls.remove(b)
+print(ls)
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+lst1=lst.copy()
+for x in lst:
+    if x==a or x==b:
+        lst1.remove(x)
+print(lst1)
+
+
+x=eval(input())
+a=x.count(max(x))
+b=x.count(min(x))
+if len(x)>0:
+    for i in range(a):
+        del x[x.index(max(x))]
+if len(x)>0:
+    for i in range(b):
+        del x[x.index(min(x))]
+print(x)
+
+lst = eval(input())
+l2 = []
+for i in lst:
+    if i == max(lst):
+        continue
+    elif i == min(lst):
+        continue
+    else:
+        l2.append(i)        
+print(l2)
+
+
+
+x=eval(input())
+M=max(x)
+m=min(x)
+while M in x:
+    x.remove(M)
+while m in x:
+    x.remove(m)
+print(x)
+
+h=int(input())
+N=int(input())
+sums=h
+for x in range(N-1):
+    sums+=h*0.5**x
+print("%.2f"%(sums))
+
+h=eval(input())
+N=eval(input())
+if N==1:
+    print("%.2f"%(h))
+while N>1:
+    d=h
+    for x in range(N-1):
+        c=h/2
+        d=d+2*c
+        h=h/2
+    break
+print("%.2f"%(d))
+
+
+
+
+
+list1=eval(input())
+m=max(list1)
+n=min(list1)
+list2=list1.copy()
+for x in list1:
+    if x==m or x==n:
+        list2.remove(x)
+print(list2)
+
+h=eval(input())
+n=eval(input())-1
+eva=h
+if n==1:
+    print("%.2f"%h)
+else:
+    while n>0:
+        eva+=h*0.5*2
+        h*=0.5
+        n-=1
+    print("%0.2f"%eva)
+
+
+x=eval(input())
+a=x.count(max(x))
+b=x.count(min(x))
+if len(x)>0:
+    for i in range(a):
+        del x[x.index(max(x))]
+if len(x)>0:
+    for i in range(b):
+        del x[x.index(min(x))]
+print(x)
+
+a=eval(input())
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)> 0:
+    for i in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for i in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+
+a=eval(input())
+b=max(a)
+c=min(a)
+d=[]
+d.append(b)
+d.append(c)
+f=[]
+for x in a:
+    if x not in d:
+        f.append(x)
+print(f)
+
+ls = eval(input())
+max_num = max(ls)
+min_num = min(ls)
+nums = ls.copy()
+for num in nums:
+    if num == max_num or num == min_num:
+        ls.remove(num)
+print(ls)
+
+
+a=eval(input())
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+a=eval(input())
+m=max(a)
+n=min(a)
+while True:
+    if m in a:
+        a.remove(m)
+    else:
+        break
+while True:
+    if n in a:
+        a.remove(n)
+    else:
+        break
+print(a)
+
+h=eval(input())
+n=eval(input())
+H=0
+for x in range(1,n+1):
+    a=h/(2**(x-1))
+    H=H+a*2
+print("{0:.2f}".format(H-h))
+
+h=eval(input())
+n=eval(input())-1
+eva=h
+if n==1:
+    print("%.2f"%h)
+else:
+    while n>0:
+        eva+=h*0.5*2
+        h*=0.5
+        n-=1
+    print("%.2f"%eva)
+
+
+list1=eval(input())
+a=max(list1)
+b=min(list1)
+cs1=0
+cs2=0
+for x in list1:
+    if x==a or x==b:
+        list1[cs2]="d"
+        cs1+=1
+    cs2+=1
+while cs1>0:
+    list1.remove("d")
+    cs1+=-1
+print(list1)
+
+
+list=eval(input())
+a=max(list)
+b=min(list)
+list1=list.copy()
+for x in list:
+    if x==a or x==b:
+        list1.remove(x)
+print(list1)
+
+a=eval(input())
+b=eval(input())
+c=0
+for i in range(b):
+    c+=2*a*0.5**i
+print("%.2f"%(c-a))
+
+lis = eval(input())
+num_max = lis.count(max(lis))
+num_min = lis.count(min(lis))
+for i in range(num_max):
+    lis.remove(max(lis))
+if lis != []:
+    for b in range(num_min):
+        lis.remove(min(lis))
+print(lis)
+
+
+h = eval(input())
+N = eval(input())
+s=h
+if N==1:
+    s=h
+else:
+    for i in range(1,N):
+        s=s+((0.5)**i)*h*2
+print("%.2f"%s)
+    
+
+list=eval(input())
+max=max(list)
+min=min(list)
+list2=[max,min]
+list3=[]
+for x in list:
+    if x not in list2:
+        list3.append(x)
+print(list3)
+
+a = eval(input())
+b = []
+for i in a:
+    if i <max(a) and i>min(a):
+        b.append(i)
+print(b)
+
+
+a=eval(input())
+b=max(a)
+c=min(a)
+while b in a:
+    a.remove(b)
+while c in a:
+    a.remove(c)
+print(a)
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+lst1=lst.copy()
+for x in lst:
+    if x==a or x==b:
+       lst1.remove(x)
+print(lst1)
+
+
+#【问题描述】
+#读入一个整数列表，输出删除最大元素和最小元素后的列表。最大元素和最小元素可能有多个。
+#【输入形式】
+#输入列表，包括方括号
+#【输出形式】
+#直接用print输出列表
+#【样例输入】
+#
+#【样例输出】
+#[2, 3, 4, 5, 6]
+#【样例说明】
+#【评分标准】
+#通过所有测试数据
+lst = eval(input())
+lst1 = []
+a = min(lst)
+b = max(lst)
+for x in lst:
+    if x !=a and x!=b:
+        lst1.append(x)
+print(lst1)
+
+a = eval(input())
+c = []
+for x in a:
+    if x != max(a) and x != min(a):
+        c.append(x)
+print(c)
+
+
+nums=eval(input())
+max_num=max(nums)
+min_num=min(nums)
+tmp=nums.copy()
+for num in nums:
+    if num == max_num or num==min_num:   
+        tmp.remove(num) 
+print(tmp)                                      
+                                                                                        
+
+h=eval(input())
+N=eval(input())
+s=h
+for x in range(N-1):
+    h=h/2
+    s=s+h*2
+print("%.2f"%s)
+
+
+h=eval(input())
+N=eval(input())
+s=h
+for i in range(N-1):
+    s+=h*(0.5)**(i)
+print('%.2f'%(s))
+
+h=eval(input())
+N=eval(input())
+if N==1:
+    print("%.2f"%(h))
+while N>1:
+    d=h
+    for x in range(N-1):
+        c=h/2
+        d=d+2*c
+        h=h/2
+    break
+print("%.2f"%(d))
+
+
+
+
+
+#【问题描述】
+#读入一个整数列表，输出删除最大元素和最小元素后的列表。最大元素和最小元素可能有多个。
+#【输入形式】
+#输入列表，包括方括号
+#【输出形式】
+#直接用print输出列表
+#【样例输入】
+#
+#【样例输出】
+#[2, 3, 4, 5, 6]
+#【样例说明】
+#【评分标准】
+#通过所有测试数据
+lst = eval(input())
+lst1 = []
+a = min(lst)
+b = max(lst)
+for x in lst:
+    if x !=a and x!=b:
+        lst1.append(x)
+print(lst1)
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+lst1=lst.copy()
+for x in lst:
+	if x==a or x==b:
+		lst1.remove(x)
+print(lst1)
+
+a=eval(input())
+a=list(a)
+b=max(a)
+c=min(a)
+list2=[]
+
+for x in a:
+    if x!=b and x!=c:
+        list2.append(x)
+
+print(list2)
+
+
+
+
+a=eval(input())
+b=eval(input())
+c=[]
+c.append(a)
+for i in range(1,b):
+    d=a*2*(0.5)**i
+    c.append(d)
+d=sum(c)
+print("%.2f"%d)
+
+lst=eval(input())
+
+min_number=min(lst)
+max_number=max(lst)
+len=len(lst)
+answer=[]
+answer=[lst[i] for i in range(len) if lst[i]!=max_number and lst[i]!=min_number]
+#answer=[i for i in lst if i !=max_number and i !=min_number]
+
+
+print(answer)
+
+a=eval(input())
+max=max(a)
+min=min(a)
+for x in reversed(a):
+    if x==max or x==min:
+        a.remove(x)
+print(a)
+
+a=eval(input())
+b=[]
+for x in a:
+    if x!=max(a) and x!=min(a):
+        b.append(x)
+print(b)
+
+a = eval(input())
+c =max(a)
+b = min(a)
+if b ==c:
+    print("[]")
+else:
+
+    
+    d = a.count(c)
+    e = a.count(b)
+    for i in range(1,d+1):
+        a.remove(c)
+    for i in range(1,e+1):
+        a.remove(b)
+    print(a)
+
+
+lst=eval(input())
+lst1=[]
+x=min(lst)
+y=max(lst)
+for i in lst:
+    if i!=x and i!=y:
+        lst1.append(i)
+print(lst1)
+
+ls1=eval(input())
+m = max(ls1)
+n = min(ls1)
+ls2=ls1.copy()
+for x in ls1:
+    if x == max(ls1) or x == min(ls1):
+        ls2.remove(x)
+print(ls2)
+
+a = eval(input())
+c =max(a)
+b = min(a)
+if b ==c:
+    print("[]")
+else:
+
+    
+    d = a.count(c)
+    e = a.count(b)
+    for i in range(d):
+        a.remove(c)
+    for i in range(e):
+        a.remove(b)
+    print(a)
+
+
+c=eval(input())
+z=min(c)
+b=max(c)
+print([x for x in c if x!=z and x!=b])
+
+h=eval(input())
+n=eval(input())
+r=0
+while n>1:
+    r+=h*3/2
+    h=h/2   
+    n-=1
+r+=h
+print("%.2f"%r)
+
+
+h=eval(input())
+N=eval(input())
+H=h
+if N==1:
+    print("%.2f"%h)
+elif N>1:
+    for i in range(1,N):
+        H=H+2*h*0.5**i
+    print("%.2f"%H)
+
+
+
+
+num=eval(input())
+max=max(num)
+min=min(num)
+a=num.copy()
+for i in num:
+    if i==max or i==min:
+        a.remove(i)
+print(a)
+
+h=eval(input())
+N=eval(input())
+H=h
+for i in range(N-1):
+    a=h*0.5**(i+1)
+    H+=a*2
+print("%.2f"%(H))
+    
+
+h = float(input())
+n = int(input())
+kong = [h]
+if n==1:
+    print(h)
+else:
+    for i in range(n-1):
+        h = h*0.5
+        kong.append(h*2)
+print("%.2f"%(sum(kong)))
+
+a = eval(input())
+c = []
+for x in a:
+    if x != max(a) and x != min(a):
+        c.append(x)
+print(c)
+
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+while a in lst:
+    lst.remove(a)
+while b in lst:
+    lst.remove(b)
+print(lst)
+
+a=eval(input())
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+a=eval(input())
+b=[]
+c=max(a)
+d=min(a)
+e=[]
+for i in a:
+    if i==d or i==c:
+        e.append(i)
+for x in e:
+    a.remove(x)
+for y in a:
+    b.append(y)
+print(b)
+
+h=eval(input())
+N=eval(input())
+if N==1:
+    print(h)
+while N>1:
+    d=h
+    for x in range(N-1):
+        c=h/2
+        d=d+2*c
+        h=h/2
+    break
+print("%.2f"%(d))
+
+
+
+
+
+a = eval(input());d=a.copy()
+b=max(a);c=min(a)
+for i in d:
+    if i==b:
+        a.remove(i)
+    elif i==c:
+        a.remove(i)
+    print(a)
+
+
+lst = eval(input())
+a = max(lst)
+b = min(lst)
+lst1 = []
+for x in lst:
+    if x!=a and x!=b:
+        lst1.append(x)
+    else:
+        pass
+print(lst1)
+
+ls=eval(input())
+ls2=[]
+a=max(ls)
+b=min(ls)
+for i in range(len(ls)):
+    if ls[i] != a and ls[i] !=b:
+        ls2.append(ls[i])
+print(ls2)
+
+
+
+h=float(input())
+N=int(input())
+d=h
+if N>1:
+    for i in range(1,N):
+        c=h*(1/2)**(i)
+        d=d+2*c
+    print(f'{d:.2f}')
+else:
+    print(f'{d:.2f}')
+
+
+a = eval(input())
+b = a.count(max(a))
+c = a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:   
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+
+
+
+nums = eval(input())
+a = max(nums)
+b = min(nums)
+kong = []
+for i in nums:
+    if i == a or i == b:
+        pass
+    else:
+        kong.append(i)
+print(kong)
+
+lst = eval(input())
+a = max(lst)
+b = min(lst)
+lst = [x for x in lst if x!= a and x != b]
+   
+
+print(lst)
+
+lst = eval(input())
+a = max(lst)
+b = min(lst)
+lst1 = []
+for x in lst:
+    if x!=a and x!=b:
+        lst1.append(x)
+    else:
+        pass
+print(lst1)
+
+h=eval(input())
+N=eval(input())
+H=h
+for i in range(N-1):
+    a=h*0.5**(i+1)
+    H+=a*2
+print("%.2f"%(H))
+    
+
+# 读取输入的整数列表
+input_list = eval(input())
+
+# 如果列表为空，则输出空列表
+if not input_list:
+    print([])
+
+# 寻找最大和最小元素的值
+max_value = max(input_list)
+min_value = min(input_list)
+
+# 删除所有最大和最小元素
+output_list = [x for x in input_list if x != max_value and x != min_value]
+
+# 输出删除最大和最小元素后的列表
+print(output_list)
+
+
+a = eval(input())
+b = a.count(max(a))
+c = a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:   
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+
+
+
+lst=eval(input())
+lst1=lst.copy()
+maxl=max(lst)
+minl=min(lst)
+for i in lst1:
+    if i==maxl or i==minl:
+        lst.remove(i)
+print(lst)
+
+h=eval(input())
+c=eval(input())
+h=4*h*(1-(1/2)**c)-h
+print("%.2f"%h)
+
+a = eval(input())
+b = a.copy()
+m=max(a)
+n=min(a)
+for i in b:
+    if i == m or i== n:
+        a.remove(i)
+print(a)
+
+h=float(input())
+N=int(input())
+d=h
+if N>1:
+    for i in range(1,N):
+        c=h*(1/2)**(i)
+        d=d+2*c
+    print(f'{d:.2f}')
+else:
+    print(f'{d:.2f}')
+
+
+a=eval(input())
+b=eval(input())
+c=a
+for i in range(b-1):
+    x=(0.5)**i
+    d=a*x
+    c+=d
+print("%.2f"%c)
+
+list1 = eval(input())
+list1 = list(list1)
+a = max(list1)
+b = min(list1)
+count1 = 0
+count2 = 0
+for x in list1:
+    if x == a or x == b:
+        list1[count2] = '#'
+        count1 += 1
+    count2 += 1
+while count1 > 0:
+    list1.remove('#')   # 原来一次只删除一个'#'啊
+    count1 -= 1
+print(list1)
+
+list=eval(input())
+max=max(list)
+min=min(list)
+list2=[max,min]
+list3=[]
+for x in list:
+    if x not in list2:
+        list3.append(x)
+print(list3)
+
+h = eval(input())
+n = eval(input())
+s = h
+for i in range(1,n):
+    h = h/2
+    s+=h*2
+print("%.2f"%(s))
+
+a=eval(input())
+b=max(a)
+c=min(a)
+d=[i for i in a if i!=b and i!=c]
+print(d)
+
+a = eval(input())
+b = a.count(max(a))
+c = a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0: 
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a) 
+
+
+a=eval(input())
+max=max(a)
+min=min(a)
+for x in reversed(a):
+    if x==max or x==min:
+        a.remove(x)
+print(a)
+
+from ast import Del
+
+
+list=eval(input())
+a=max(list)
+b=min(list)
+list1=[]
+for x in list:
+    if x!=a and x!=b:
+       list1.append(x)
+print(list1) 
+
+
+h=eval(input())
+N=eval(input())
+if N==1:
+    print(h)
+while N>1:
+    d=h
+    for x in range(N-1):
+        c=h/2
+        d=d+2*c
+        h=h/2
+    break
+print("%.2f"%(d))
+
+
+
+
+
+ls=eval(input())
+a=ls.count(max(ls))
+b=ls.count(min(ls))
+i=0
+while i<a:
+    ls.remove(max(ls))
+    i+=1
+if len(ls)>=1:
+    j=0
+    while j<b:
+        ls.remove(min(ls))
+        j+=1
+print(ls)
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+lst1=lst.copy()
+for x in lst:
+    if x==a or x==b:
+        lst1.remove(x)
+print(lst1)
+
+a=eval(input())
+b=max(a)
+c=min(a)
+d=a.copy()
+for i in a:
+    if i==c or i==b:
+        d.remove(i)
+print(d)
+
+a = eval(input());d=a.copy()
+b=max(a);c=min(a)
+for i in d:
+    if i==b or i==c:
+        a.remove(i)
+print(a)
+
+
+a = eval(input())
+b = a.count(max(a))
+c = a.count(min(a))
+if len(a) > 0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a) > 0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+a=list(eval(input()))
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+
+
+
+a=eval(input())
+b=a.count(max(a))
+c=a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+
+h=eval(input())
+N=eval(input())
+H=h
+if N==1:
+    print('%.2f'%H)
+else:
+    for i in range(1,N):
+        H=H+2*h*0.5**i
+    print('%.2f'%H)
+
+Li = eval(input())
+Imax = int(max(Li))
+Imin = int(min(Li))
+Nmax = Li.count(Imax)
+Nmin = Li.count(Imin)
+a=0
+b=0
+if Imax != Imin:
+    while a < Nmax:
+        Li.remove(Imax)
+        a += 1
+    while b < Nmin:
+        Li.remove(Imin)
+        b += 1
+    print(Li)
+elif Imax == Imin:
+    Li.clear()
+    print(Li)
+
+
+
+
+
+
+
+lst=eval(input())
+a=max(lst)
+b=min(lst)
+lst1=lst.copy()
+for x in lst:
+    if x==a or x==b:
+        lst1.remove(x)
+    print(lst1)
+
+ls1=eval(input())
+a=max(ls1)
+b=min(ls1)
+ls2=ls1.copy()
+for x in ls1:
+    if x==a or x==b:
+        ls2.remove(x)
+print(ls2)
+
+
+def remove_extremes(lst):
+    min_val = min(lst)
+    max_val = max(lst)
+    new_lst = [x for x in lst if x != min_val and x != max_val]
+    return new_lst
+
+
+input_list = input()
+lst = eval(input_list)
+new_lst = remove_extremes(lst)
+print(new_lst)
+
+
+h=eval(input())
+n=eval(input())
+x=h
+for i in range(n):
+    if i==0:
+        pass
+    if i>0:
+        x+=h*(0.5**(i-1))
+print("{:.2f}".format(x))
+
+
+
+a=eval(input())
+b=max(a)
+c=min(a)
+d=a.copy()
+for x in a:
+    if x==b or x==c:
+        d.remove(x)
+print(d)        
+
+h=eval(input())
+n=eval(input())-1
+eva=h
+if n==1:
+    print("%.2f"%h)
+else:
+    while n>0:
+        eva+=h*0.5*2
+        h*=0.5
+        n-=1
+    print("%0.2f"%eva)
+
+a = eval(input())
+b = a.count(max(a))
+c = a.count(min(a))
+if len(a)>0:
+    for x in range(b):
+        del a[a.index(max(a))]
+if len(a)>0:
+    for x in range(c):
+        del a[a.index(min(a))]
+print(a)
+

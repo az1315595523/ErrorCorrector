@@ -36,7 +36,7 @@ class DataPipeline:
         os.makedirs(output_dir, exist_ok=True)
 
         for filename in os.listdir(input_dir):
-            with open(os.path.join(input_dir, filename), 'r') as f:
+            with open(os.path.join(input_dir, filename), 'r', encoding='utf-8') as f:
                 original_code = f.read()
 
             samples = []
@@ -44,9 +44,9 @@ class DataPipeline:
             mutators_with_none = self.mutators + [None]
             rates_with_none = CONFIG.MUTATION_RATE + [1 - sum(CONFIG.MUTATION_RATE)]
 
-            for i in range(10):
+            for i in range(CONFIG.MUTATION_SIZE):
                 print("time:", i)
-                time = random.choices(range(12), weights=CONFIG.MUTATION_TIMES_RATE, k=1)[0]
+                time = random.choices(range(len(CONFIG.MUTATION_TIMES_RATE)), weights=CONFIG.MUTATION_TIMES_RATE, k=1)[0]
                 mutators = random.choices(mutators_with_none, weights=rates_with_none, k=time)
                 mutated = original_code
                 singleMutationInfo = []
