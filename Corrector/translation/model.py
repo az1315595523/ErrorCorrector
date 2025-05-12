@@ -91,11 +91,9 @@ class Seq2Seq(nn.Module):
         #         print(f"参数 {name} 包含NaN！")
         # print("position_idx 最大值：", position_idx.max().item())
 
-        # # 检查是否有全 False 的行
         # row_sums = attn_mask.sum(dim=-1)
         # has_invalid_rows = (row_sums == 0).any()
         # print("是否存在全 False 的行：", has_invalid_rows)
-        # # 如果想打印出具体位置：
         # invalid_rows = torch.nonzero(row_sums == 0)
         # print("这些行全为 False：", invalid_rows)
 

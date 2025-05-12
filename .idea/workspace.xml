@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69fd9ec7-09cc-4b96-a108-5887e919eb03" name="更改" comment="更改" />
+    <list default="true" id="69fd9ec7-09cc-4b96-a108-5887e919eb03" name="更改" comment="更改">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Capstone project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Capstone project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASTParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASTParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corrector/CorrectorModel/dev.gold" beforeDir="false" afterPath="$PROJECT_DIR$/Corrector/CorrectorModel/dev.gold" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corrector/CorrectorModel/dev.output" beforeDir="false" afterPath="$PROJECT_DIR$/Corrector/CorrectorModel/dev.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corrector/modelTrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/Corrector/modelTrain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Corrector/translation/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Corrector/translation/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestPython.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestPython.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataPipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/ArrayMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/ArrayMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/BaseMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/BaseMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/BoundaryMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/BoundaryMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/BracketMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/BracketMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/ColonMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/ColonMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/ConditionMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/ConditionMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/FunctionMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/FunctionMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/IndentMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/IndentMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/ModuleMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/ModuleMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/OperatorMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/OperatorMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/QuoteMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/QuoteMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutators/VariableNameMutator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutators/VariableNameMutator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s-2910-001.py" beforeDir="false" afterPath="$PROJECT_DIR$/s-2910-001.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,11 +74,13 @@
     &quot;Python.dataPipeline.executor&quot;: &quot;Run&quot;,
     &quot;Python.f-2910-001.executor&quot;: &quot;Run&quot;,
     &quot;Python.f-2910-002.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.myTest.executor&quot;: &quot;Run&quot;,
     &quot;Python.s-2910-001.executor&quot;: &quot;Run&quot;,
     &quot;Python.s-2910-001.py_err_2.executor&quot;: &quot;Run&quot;,
     &quot;Python.s-2910-002.executor&quot;: &quot;Run&quot;,
+    &quot;Python.statistic.executor&quot;: &quot;Run&quot;,
     &quot;Python.validator.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -67,7 +95,29 @@
       <recent name="F:\py\Capstone project\mutators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main (1)">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Capstone project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Capstone project" />
       <option name="ENV_FILES" value="" />
@@ -82,6 +132,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="F:\py\Capstone project\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="statistic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Capstone project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Judge" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Judge/statistic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,6 +194,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.statistic" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests in Judge.py" />
         <item itemvalue="Python tests.Python tests in main.py" />

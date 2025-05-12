@@ -1,5 +1,6 @@
 import ast
 import random
+from _ast import BoolOp, AST
 
 from ASTParser import  ASTParser
 from mutators.OperatorMutator import OperatorMutator  # 导入已有的操作符变异器
@@ -23,6 +24,28 @@ class ConditionMutator(OperatorMutator):
     def init(self):
         super().init()
         self.condition_nodes = []
+
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if tree is None:
+            return False
+
+        self.condition_nodes = []
+        self._collect_conditions(tree)
+
+        if not self.condition_nodes:
+            return False
+
+        for node in self.condition_nodes:
+            test_node = node.test
+            if isinstance(test_node, ast.Compare):
+                for op in test_node.ops:
+                    if type(op) in self.operator_mapping:
+                        return True
+            elif isinstance(test_node, ast.BoolOp):
+                return True
+
+        return False
 
     def mutate(self, code: str) -> str:
         self.code_lines = code.split('\n')
@@ -113,7 +136,7 @@ class ConditionMutator(OperatorMutator):
             return self._simplify_condition(node)
         return node
 
-    def _reverse_logic_operator(self, node: ast.AST) -> ast.AST:
+    def _reverse_logic_operator(self, node: ast.AST) -> BoolOp | AST:
         if isinstance(node, ast.BoolOp):
             self.successful = True
             return ast.BoolOp(

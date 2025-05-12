@@ -41,6 +41,10 @@ class BaseMutator(ABC):
         self.successful = False
         self.mutation_record = None
 
+    @abstractmethod
+    def can_mutate(self, code: str) -> bool:
+        pass
+
     def select_mutation_type(self):
         return random.choice(self.get_mutate_types())
 

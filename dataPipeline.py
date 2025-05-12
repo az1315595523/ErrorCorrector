@@ -13,6 +13,9 @@ from mutators.OperatorMutator import OperatorMutator
 from mutators.ConditionMutator import ConditionMutator
 from mutators.BoundaryMutator import BoundaryMutator
 from mutators.ArrayMutator import ArrayMutator
+from mutators.ArgMutator import ArgMutator
+from mutators.ControlFlowMutator import ControlFlowMutator
+from mutators.EmptyStructureMutator import EmptyStructureMutator
 import os
 
 
@@ -29,7 +32,10 @@ class DataPipeline:
             VariableNameMutator(),
             ConditionMutator(),
             BoundaryMutator(),
-            ArrayMutator()
+            ArrayMutator(),
+            ArgMutator(),
+            ControlFlowMutator(),
+            EmptyStructureMutator()
         ]
 
     def generate_dataset(self, input_dir, output_dir):
@@ -41,12 +47,16 @@ class DataPipeline:
 
             samples = []
 
-            mutators_with_none = self.mutators + [None]
-            rates_with_none = CONFIG.MUTATION_RATE + [1 - sum(CONFIG.MUTATION_RATE)]
+            available_mutators = [m for m in self.mutators if m.can_mutate(original_code)]
+            mutators_with_none = available_mutators + [None]
+            index_list = [self.mutators.index(m) for m in available_mutators]
+            available_rates = [CONFIG.MUTATION_RATE[i] for i in index_list]
+            rates_with_none = available_rates + [1 - sum(CONFIG.MUTATION_RATE)]
 
             for i in range(CONFIG.MUTATION_SIZE):
                 print("time:", i)
-                time = random.choices(range(len(CONFIG.MUTATION_TIMES_RATE)), weights=CONFIG.MUTATION_TIMES_RATE, k=1)[0]
+                time = random.choices(range(min(len(CONFIG.MUTATION_TIMES_RATE), len(index_list))),
+                                      weights=CONFIG.MUTATION_TIMES_RATE[:len(available_mutators)], k=1)[0]
                 mutators = random.choices(mutators_with_none, weights=rates_with_none, k=time)
                 mutated = original_code
                 singleMutationInfo = []
@@ -60,7 +70,7 @@ class DataPipeline:
                         mutated = mutator.mutate(mutated)
                         print("mutated:", mutated)
                         print("info", mutator.mutation_record)
-                        print("isSuccessful:",mutator.successful)
+                        print("isSuccessful:", mutator.successful)
                         count += 1
                         if mutator.successful:
                             singleMutationInfo.append({
@@ -82,7 +92,6 @@ class DataPipeline:
                     'mutation_info': total_Mutation_Info
                 })
 
-
             for i, sample in enumerate(samples):
                 code_path = os.path.join(output_dir, f"{filename}_err_{i}.py")
                 info_path = os.path.join(output_dir, f"{filename}_info_{i}.json")
@@ -92,4 +101,3 @@ class DataPipeline:
 
                 with open(info_path, 'w', encoding='utf-8') as f_info:
                     json.dump(sample['mutation_info'], f_info, indent=2, ensure_ascii=False)
-

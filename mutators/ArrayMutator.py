@@ -29,6 +29,16 @@ class ArrayMutator(BaseMutator):
     def init(self):
         super().init()
 
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if not tree:
+            return False
+
+        collector = ArrayIndexCollector()
+        collector.visit(tree)
+
+        return len(collector.index_nodes) > 0
+
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
         if tree is None:

@@ -16,6 +16,9 @@ class BracketMutator(BaseMutator):
         super().init()
         self._mutation_applied = False
 
+    def can_mutate(self, code: str) -> bool:
+        return bool(self._find_all_bracket_pairs(code))
+
     def mutate(self, code: str) -> str:
         lines = code.splitlines()
         bracket_pairs = self._find_all_bracket_pairs(code)

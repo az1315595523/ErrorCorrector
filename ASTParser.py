@@ -1,5 +1,4 @@
 import ast
-import astor
 
 
 class ASTParser:
@@ -13,7 +12,7 @@ class ASTParser:
     @staticmethod
     def tree_to_code(tree: ast.AST) -> str:
         ast.fix_missing_locations(tree)
-        return astor.to_source(tree)
+        return ast.unparse(tree)
 
     @staticmethod
     def get_code_lines(code: str) -> list:

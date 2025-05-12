@@ -14,6 +14,21 @@ class ColonMutator(BaseMutator):
     def init(self):
         super().init()
 
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if not tree:
+            return False
+
+        lines = code.splitlines()
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.If, ast.For)):
+                line_num = node.lineno - 1
+                if 0 <= line_num < len(lines):
+                    line = lines[line_num]
+                    if ':' in line[node.col_offset:]:  # 冒号出现在语法结构之后
+                        return True
+        return False
+
     def mutate(self, code):
         tree = ASTParser.parse_to_tree(code)
         if not tree:

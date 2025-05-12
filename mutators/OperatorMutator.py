@@ -42,13 +42,37 @@ class OperatorMutator(BaseMutator):
         self.find_Compare = False
         self.code_lines = []
 
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if tree is None:
+            return False
+
+        class OperatorFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.found = False
+
+            def visit_BinOp(self, node):
+                if type(node.op) in self.operator_mapping:
+                    self.found = True
+                self.generic_visit(node)
+
+            def visit_Compare(self, node):
+                for op in node.ops:
+                    if type(op) in self.operator_mapping:
+                        self.found = True
+                self.generic_visit(node)
+
+        finder = OperatorFinder()
+        finder.operator_mapping = self.operator_mapping
+        finder.visit(tree)
+        return finder.found
+
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
 
         outer_self = self
 
         self.mutate_type = self.select_mutation_type()
-
 
         class OperatorTransformer(ast.NodeTransformer):
             def visit_BinOp(self, node):

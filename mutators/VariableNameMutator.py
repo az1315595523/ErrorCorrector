@@ -41,7 +41,7 @@ class VariableCollector(ast.NodeVisitor):
         ):
             self.variables.add(node.id)
 
-    
+
 def get_renew_variable(old_var):
     chars = string.ascii_letters + string.digits
     return old_var + random.choice(chars)
@@ -67,15 +67,25 @@ def get_weighted_random_variable(old_var, candidates):
 class VariableNameMutator(BaseMutator):
     def __init__(self):
         super().__init__()
-    
+
     def init(self):
         super().init()
-    
+
     def get_mutate_types(self):
         return ['VRenew', 'VReplace']
+
     def select_mutation_type(self):
         rate = [0.1, 0.9]
-        return random.choices(self.get_mutate_types(),weights=rate,k=1)[0]
+        return random.choices(self.get_mutate_types(), weights=rate, k=1)[0]
+
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if tree is None:
+            return False
+
+        collector = VariableCollector()
+        collector.visit(tree)
+        return bool(collector.variables)
 
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)

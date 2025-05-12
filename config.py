@@ -21,32 +21,39 @@ class CONFIG:
 
     INPUT_DIR = 'data/ori_code'
     OUTPUT_DIR = 'data/mutated_code'
-    MUTATION_SIZE = 10
+    MUTATION_SIZE = 50
     MUTATION_RATE = [
-        0.005,   # bracket
-        0.005,   # colon
-        0.080,   # function
-        0.005,   # indent
-        0.040,   # module
-        0.200,   # operator
-        0.005,   # quote
-        0.200,   # variable
-        0.200,   # condition
+        0.015,   # bracket
+        0.015,   # colon
+        0.050,   # function
+        0.025,   # indent
+        0.080,   # module
+        0.130,   # operator
+        0.020,   # quote
+        0.125,   # variable
+        0.130,   # condition
         0.120,   # Boundary
-        0.120    # Array
-        #  total 0.98
+        0.042,   # Array
+        0.058,   # ArgMutator
+        0.090,   # ControlFlowMutator
+        0.085    # EmptyStructureMutator
+        #  total 0.985
     ]
     MUTATION_TIMES_RATE = [
-        0.01,
-        0.04,
-        0.06,
-        0.09,
-        0.13,
-        0.17,
-        0.17,
-        0.13,
-        0.09,
-        0.06,
-        0.04,
-        0.01
+        0.0235,
+        0.0350,
+        0.0490,
+        0.0645,
+        0.0800,
+        0.0932,
+        0.1022,
+        0.1052,
+        0.1022,
+        0.0932,
+        0.0800,
+        0.0645,
+        0.0490,
+        0.0350,
+        0.0235
     ]
+

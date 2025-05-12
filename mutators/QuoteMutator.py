@@ -45,3 +45,6 @@ class QuoteMutator(BaseMutator):
                 lines[i] = mutated_line
                 return '\n'.join(lines)
         return code
+
+    def can_mutate(self, code: str) -> bool:
+        return '"' in code or "'" in code

@@ -40,6 +40,18 @@ class FunctionMutator(BaseMutator):
     def init(self):
         super().init()
 
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if tree is None:
+            return False
+
+        collector = FunctionCollector()
+        collector.visit(tree)
+
+        all_callable_functions = collector.called_functions.union(collector.defined_functions)
+        replaceable_funcs = [func for func in all_callable_functions if func in self.FUNCTION_REPLACEMENTS]
+        return bool(replaceable_funcs)
+
     def mutate(self, code: str) -> str:
         tree = ASTParser.parse_to_tree(code)
         if tree is None:

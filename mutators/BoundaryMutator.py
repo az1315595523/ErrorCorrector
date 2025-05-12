@@ -22,6 +22,21 @@ class BoundaryMutator(BaseMutator):
         super().init()
         self.original_code = None
 
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        class RangeChecker(ast.NodeVisitor):
+            def __init__(self):
+                self.found = False
+
+            def visit_For(self, node):
+                if isinstance(node.iter, ast.Call) and isinstance(node.iter.func,
+                                                                  ast.Name) and node.iter.func.id == 'range':
+                    self.found = True
+
+        checker = RangeChecker()
+        checker.visit(tree)
+        return checker.found
+
     def shift_boundary(self, mutate_type, node):
         shiftScale = random.randint(1, 3)
 

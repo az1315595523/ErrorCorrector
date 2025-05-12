@@ -17,7 +17,7 @@ from Corrector.translation.bleu import _bleu
 from config import CONFIG
 from Corrector.Dataset import CodeCorrectDataset, ReadData, Convert_examples_to_features
 from Corrector.translation.model import Seq2Seq
-
+from Corrector.translation.bleu import compute_bleu
 
 def train(do_eval=False):
     logger = logging.getLogger(__name__)
@@ -97,7 +97,7 @@ def train(do_eval=False):
                 optimizer.zero_grad()
                 scheduler.step()
                 global_step += 1
-        if do_eval and epoch in [int(CONFIG.EPOCHS * (i + 1) // 20) for i in range(20)]:
+        if do_eval and epoch in [int(CONFIG.EPOCHS * (i + 1) // 5) for i in range(5)]:
             # Eval model with dev dataset
             tr_loss = 0
             nb_tr_examples, nb_tr_steps = 0, 0
@@ -237,13 +237,15 @@ def predict(model, features, tokenizer, device):
     dataset = CodeCorrectDataset(features)
     dataloader = DataLoader(
         dataset,
-        batch_size=1,  # 单样本推理
+        batch_size=1,
         sampler=SequentialSampler(dataset),
-        num_workers=4
     )
+    print(device)
     model.to(device)
+    model.eval()
     predictions = []
-    for batch in dataloader:
+    bar = tqdm(dataloader, total=len(dataloader))
+    for batch in bar:
         batch = tuple(t.to(device) for t in batch)
         source_ids, source_mask, position_idx, att_mask, _, _ = batch
 
@@ -258,3 +260,53 @@ def predict(model, features, tokenizer, device):
             text = tokenizer.decode(t, skip_special_tokens=True)
             predictions.append(text)
     return predictions
+
+
+def BLEUEvaluate(model, tokenizer, device, data_path):
+    dev_dataset = {}
+    eval_sample = ReadData(data_path)
+    logger = logging.getLogger(__name__)
+    if 'dev_bleu' in dev_dataset:
+        eval_samples, eval_data_set = dev_dataset['dev_bleu']
+    else:
+        eval_samples = copy.deepcopy(eval_sample)
+        print(type(eval_sample), type(eval_samples))
+        print("random", random, type(random))
+        eval_samples = random.sample(eval_samples, min(100, len(eval_samples)))
+        eval_features = Convert_examples_to_features(eval_samples, tokenizer, stage='test')
+        eval_data_set = CodeCorrectDataset(eval_features)
+        dev_dataset['dev_bleu'] = eval_samples, eval_data_set
+
+    eval_sampler = SequentialSampler(eval_data_set)
+    eval_dataloader = DataLoader(eval_data_set, sampler=eval_sampler, batch_size=CONFIG.BATCH_SIZE,
+                                 num_workers=4)
+    model.eval()
+    p = []
+    for batch in eval_dataloader:
+        batch = tuple(t.to(device) for t in batch)
+        source_ids, source_mask, position_idx, att_mask, target_ids, target_mask = batch
+        with torch.no_grad():
+            preds = model(source_ids, source_mask, position_idx, att_mask)
+            for pred in preds:
+                t = pred[0].cpu().numpy()
+                t = list(t)
+                if 0 in t:
+                    t = t[:t.index(0)]
+                text = tokenizer.decode(t, clean_up_tokenization_spaces=False)
+                p.append(text)
+    model.train()
+    predictions = []
+    accs = []
+    with open(os.path.join(CONFIG.SAVE_DIR, "dev.output"), 'w') as f, open(
+            os.path.join(CONFIG.SAVE_DIR, "dev.gold"), 'w') as f1:
+        for ref, gold in zip(p, eval_samples):
+            predictions.append(ref)
+            f.write(ref + '\n')
+            f1.write(gold['fixed_code'] + '\n')
+            accs.append(ref == gold['fixed_code'])
+    dev_bleu = round(
+        _bleu(os.path.join(CONFIG.SAVE_DIR, "dev.gold"), os.path.join(CONFIG.SAVE_DIR, "dev.output")), 2)
+    xmatch = round(np.mean(accs) * 100, 4)
+    logger.info("  %s = %s " % ("bleu-4", str(dev_bleu)))
+    logger.info("  %s = %s " % ("xMatch", str(xmatch)))
+    logger.info("  " + "*" * 20)

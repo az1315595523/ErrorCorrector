@@ -12,7 +12,13 @@ class IndentMutator(BaseMutator):
     
     def init(self):
         super().init()
-    
+
+    def can_mutate(self, code: str) -> bool:
+        tree = ASTParser.parse_to_tree(code)
+        if tree is None:
+            return False
+        return True
+
     def mutate(self, code) :
         lines = code.splitlines()
         for i, line in enumerate(lines):
